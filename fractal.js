@@ -35,7 +35,7 @@ class Complex
 
 class ComplexFractalMaker
 {
-    constructor (fractal_description_collection,color_description_collection, canvas_id,timeout)
+    constructor (fractal_description_collection,color_description_collection, canvas_id)
     {
 	this.canvas = document.getElementById(canvas_id);
 	if(this.canvas)
@@ -47,35 +47,46 @@ class ComplexFractalMaker
 	    this.ctop = Math.round(bounding.top);
 	    this.cright = Math.round(bounding.right);
 	    this.cbottom = Math.round(bounding.bottom);
-	    this.height = Math.round(bounding.height);
-	    this.width = Math.round(bounding.width);
 
-	    console.log(this.width, this.height);
 	    
-	    this.img = this.ctx.createImageData(this.width,this.height);
+	    this.fractal =
+		{
+		    height : Math.round(bounding.height),
+		    width : Math.round(bounding.width),
+		    xmin : -2,
+		    xmax : 2,
+		    ymin : -2,
+		    ymax : 2,
+		    fn : "",
+		    mandelbrot : true,
+		    c: new Complex(0,0),
+		    max_iter: 1000
+		};
+
+	    this.worker = new Worker("./makeFractalsWorker.js");
+	    this.worker.onmessage = e => {
+		this.colorizeCollection(e.data);
+		this.draw() ;
+		this.wait = false;
+	    }
+
+	    
+	    this.img = this.ctx.createImageData(this.fractal.width,this.fractal.height);
 	    
 	    this.axes = false;
 	    this.box = false;
 	    this.boxx = 0;
 	    this.boxy = 0;
 	    
-	    this.xmin = -2;
-	    this.xmax = 2;
-	    this.ymin = -2;
-	    this.ymax = 2;
-	    
-	    this.timeout = timeout;
-	    this.timer_id = 0 ;
 	    this.wait = false; 
 	    
 	    
 	    this.collection = fractal_description_collection;
 	    this.colorParams = color_description_collection;
 	    this.n = fractal_description_collection.length;
-	    this.ncolors = color_description_collection.length;
+	    this.ncolors = color_description_collection.length; 
 	    
 	    this.clr = 0;
-	    this.fractal = 0;
 	    
 	    
 	    
@@ -83,79 +94,86 @@ class ComplexFractalMaker
 
 	    this.canvas.addEventListener("mouseenter", e=>
 		{
-		    if(!this.wait) { this.wait = true; clearTimeout(this.timer_id); }
+		
 		});
 	    
 	    this.canvas.addEventListener("mousemove",  e=>
 		{
-		    let x = e.clientX;
-		    let y = e.clientY;
-		    this.draw(e.clientX-this.cleft,e.clientY-this.ctop,true,this.box);
+		    if(!this.wait)
+		    {
+			this.draw(Math.round(e.clientX-this.cleft),Math.round(e.clientY-this.ctop),true,this.box);
+		    }
 		});
 	    
 	    this.canvas.addEventListener("mousedown", e=>
 		{
-		    this.boxx = e.clientX - this.cleft;
-		    this.boxy = e.clientY - this.ctop;
-		    this.draw(this.boxx,this.boxy,true,true);    
+		    if(!this.wait)
+		    {
+			this.boxx = Math.round(e.clientX - this.cleft);
+			this.boxy = Math.round(e.clientY - this.ctop);
+			this.draw(this.boxx,this.boxy,true,true);
+		    }
 		});
 	    
 	    this.canvas.addEventListener("mouseup", e =>
 		{
-		    this.axes=this.box=false;
-		    let xpix, xxpix, ypix, yypix;
-		    
-		    let x = e.clientX - this.cleft;
-		    let y = e.clientY - this.ctop;
-		    
-		    if(this.boxx>x)
+		    if(!this.wait)
 		    {
-			xpix = x;
-			xxpix = this.boxx;
-		    }
-		    else
-		    {
-			xpix = this.boxx;
-			xxpix = x;
-		    }
-		    
-		    if(this.boxy>y)
-		    {
-			ypix = y;
-			yypix = this.boxy;
-		    }
-		    else
-		    {
-			ypix = this.boxy;
-			yypix = y;
-		    }
-		    
-		    if(xxpix-xpix < 5 && yypix-ypix < 5)
-		    {
-			// Click
-			console.log(this.xmin,this.xmax,this.ymin,this.ymax);
-			this.wait=  false ; // unblock random rotation until refresh
-			this.run();
-		    }
-		    else
-		    {
-			let w = (this.xmax-this.xmin) / this.width;
-			let h = (this.ymax-this.ymin) / this.height;
-			let xm = this.xmin;
-			let ym = this.ymax;
-
-			this.xmin = xm +  w * xpix;
-			this.ymin = ym -  h * yypix;
-		this.xmax = xm +  w * xxpix;
-			this.ymax = ym -  h * ypix;
+			this.axes=this.box=false;
+			let xpix, xxpix, ypix, yypix;
 			
-			this.makeFractal();
-			this.draw(0,0,false,false);
+			let x = Math.round(e.clientX - this.cleft);
+			let y = Math.round(e.clientY - this.ctop);
+			
+			if(this.boxx>x)
+			{
+			    xpix = x;
+			    xxpix = this.boxx;
+			}
+			else
+			{
+			    xpix = this.boxx;
+			    xxpix = x;
+			}
+			
+			if(this.boxy>y)
+			{
+			    ypix = y;
+			    yypix = this.boxy;
+			}
+			else
+			{
+			    ypix = this.boxy;
+			    yypix = y;
+			}
+			
+			if(xxpix-xpix < 5 && yypix-ypix < 5)
+			{
+			    // Click
+			    this.run();
+			}
+			else
+			{
+			    let frac = this.fractal;
+			    let w = (frac.xmax-frac.xmin) / frac.width;
+			    let h = (frac.ymax-frac.ymin) / frac.height;
+			    let xm = frac.xmin;
+			    let ym = frac.ymax;
+			    
+			    frac.xmin = xm +  w * xpix;
+			    frac.ymin = ym -  h * yypix;
+			    frac.xmax = xm +  w * xxpix;
+			    frac.ymax = ym -  h * ypix;
+			    clearTimeout(this.timer_id);
+			    this.wait = false;
+			    this.computeScreen();
+			    this.worker.postMessage(this.fractal);
+			}
 		    }
 		});
 
 	    this.canvas.addEventListener("mouseleave", e=>
-		{ this.draw(); if(this.wait) { this.wait = false; setTimeout(()=>{ this.run();},this.timeout); } } );
+		{ if(!this.wait) { this.draw(); } }); 
 
 	    
 	}
@@ -168,15 +186,22 @@ class ComplexFractalMaker
     }
 
 
+    computeScreen()
+    {
+	let ctx = this.ctx;
+	this.wait=true;
+	ctx.clearRect(0,0,this.fractal.width,this.fractal.height);
+	ctx.fillStyle = "black;"
+	ctx.font = "20px Times";
+	ctx.fillText( "Please wait as a new fractal is being computed...", 10,20);
+    }
+    
     resizeCanvasToDisplaySize() {
-	// Get the size the browser is displaying the canvas in CSS pixels
 	const displayWidth = this.canvas.clientWidth;
 	const displayHeight = this.canvas.clientHeight;
 	
-	// Check if the canvas is not the same size as the display size
 	if(this.canvas.width !== displayWidth || this.canvas.height !== displayHeight)
 	{
-	    // Make the canvas drawing buffer the same size as the display size
 	    this.canvas.width = displayWidth;
 	    this.canvas.height = displayHeight;
 	}
@@ -186,38 +211,27 @@ class ComplexFractalMaker
     {
 	if(!this.wait)
 	{
-	    let worker = new Worker("./makeFractalWorker.js");
-	    const data = {
-		xmin: this.xmin,
-		xmax: this.xmax,
-		ymin: this.ymin,
-		ymax: this.ymax,
-		mandelbrot: this.mandelbrot,
-		fn: this.fn,
-		width: this.width,
-		height: this.height,
-		c: this.c,
-	    }
-	    this.chooseRandom(); console.log(this.clr, this.fractal);
-	    worker.onmessage = e => { this.colorizeCollection(e.data); this.draw() };
-	    worker.postMessage(data);
-	    this.timer_id = setTimeout(() => { this.run(); },this.timeout);
+	    this.chooseRandom();
+	    this.computeScreen();
+	    this.worker.postMessage(this.fractal);
 	}
     }
     
     select(n,j)
     {
 	let f = this.collection[n];
-	this.fn = f.fn; // fns[f.fn] ||  fns["quadratic"];
-	this.mandelbrot = f.mandelbrot;
-	this.xmin = f.xmin || -2;
-	this.xmax = f.xmax || 2;
-	this.ymin = f.ymin || -2 ;
-	this.ymax = f.ymax || 2;
-	this.c = f.c || new Complex(0,0) ;
-	this.max_iter = f.max_iter || 1000;
+	let fractal=this.fractal;
+	fractal.fn = f.fn; 
+	fractal.mandelbrot = f.mandelbrot;
+	fractal.xmin = f.xmin || -2;
+	fractal.xmax = f.xmax || 2;
+	fractal.ymin = f.ymin || -2 ;
+	fractal.ymax = f.ymax || 2;
+	fractal.c = f.c || new Complex(0,0) ;
+	fractal.max_iter = f.max_iter || 5000;
+	fractal.n = n;
+	
 	this.clr = j;
-	this.fractal = n;
 	this.makeColors();
     }
 
@@ -236,7 +250,7 @@ class ComplexFractalMaker
 	const green_pwr = clr.green_power;
 	const blue_base = clr.blue_base;
 	const blue_pwr = clr.blue_power;
-	const n = this.max_iter;
+	const n = this.fractal.max_iter;
 	
 	this.colors = [];
 	for(let j = 0 ; j < n ; ++j)
@@ -280,23 +294,25 @@ class ComplexFractalMaker
 	    ctx.lineWidth = 0.5;
 	    ctx.strokeRect(this.boxx,this.boxy,x-this.boxx,y-this.boxy);
 	    ctx.font = "10px Arial";
-	    const pos_str = `From: ${(this.xmin + this.boxx/this.width*(this.xmax-this.xmin)).toFixed(6)} + ${(this.ymax-this.boxy/this.height*(this.ymax-this.ymin)).toFixed(6)}i, To: ${(this.xmin + x/this.width*(this.xmax-this.xmin)).toFixed(6)} + ${(this.ymax-y/this.height*(this.ymax-this.ymin)).toFixed(6)} i`;
-	    ctx.strokeText( pos_str, 10,10);
+	    const pos_str = `From: ${(this.fractal.xmin + this.boxx/this.fractal.width*(this.fractal.xmax-this.fractal.xmin)).toFixed(6)} + ${(this.fractal.ymax-this.boxy/this.fractal.height*(this.fractal.ymax-this.fractal.ymin)).toFixed(6)}i, To: ${(this.fractal.xmin + x/this.fractal.width*(this.fractal.xmax-this.fractal.xmin)).toFixed(6)} + ${(this.fractal.ymax-y/this.fractal.height*(this.fractal.ymax-this.fractal.ymin)).toFixed(6)} i`;
+	    ctx.fillStyle="red";
+	    ctx.fillText( pos_str, 10,10);
 	}
 	else if(ax)
 	{
 	    ctx.beginPath();
 	    ctx.moveTo(0,y);
-	    ctx.lineTo(this.width,y);
+	    ctx.lineTo(this.fractal.width,y);
 	    ctx.moveTo(x,0);
-	    ctx.lineTo(x,this.height);
+	    ctx.lineTo(x,this.fractal.height);
 	    ctx.strokeStyle="red";
 	    ctx.lineWidth = 1;
 	    ctx.stroke();
 	    ctx.font = "10px Arial";
-	    const pos_str = `${(this.xmin + x/this.width*(this.xmax-this.xmin)).toFixed(6)} + ${(this.ymax-y/this.height*(this.ymax-this.ymin)).toFixed(6)}i`;
-	    ctx.strokeText( pos_str, 10,10);
-	    ctx.strokeText( "HOW TO USE: Drag to select a zoom area, click to return to random selection", 10, this.height-20);
+	    const pos_str = `${(this.fractal.xmin + x/this.fractal.width*(this.fractal.xmax-this.fractal.xmin)).toFixed(6)} + ${(this.fractal.ymax-y/this.fractal.height*(this.fractal.ymax-this.fractal.ymin)).toFixed(6)}i`;
+	    ctx.fillStyle="red";
+	    ctx.fillText( pos_str, 10,10);
+	    ctx.fillText( "HOW TO USE: Drag to select a zoom area, click for a new fractal.", 10, this.fractal.height-20);
 
 	}
 	this.axes = ax;
@@ -312,7 +328,7 @@ class ComplexFractalMaker
 const myCollection =
       [
 
-	  { fn: (z,c) => { return z.add(z.mul(z,z),c); },
+	  { fn: "z.add(z.mul(z,z),c)",
 	    xmin: -2,
 	    xmax: 2,
 	    ymin: -2,
@@ -321,7 +337,7 @@ const myCollection =
 	    mandelbrot: false
 	  },
 
-	  { fn: (z,c) => { return z.add(z.mul(z,z),c); },
+	  { fn: "z.add(z.mul(z,z),c)",
 	    xmin: -2,
 	    xmax: 2,
 	    ymin: -2,
@@ -331,7 +347,7 @@ const myCollection =
 	  },
 
 
-	  { fn: (z,c) => { return z.add(z.mul(z,z),c); },
+	  { fn: "z.add(z.mul(z,z),c)",
 	    xmin: -0.8509902413009751,
 	    xmax: -0.06375619874778371,
 	    ymin: -0.290829453623092,
@@ -341,7 +357,7 @@ const myCollection =
 	  },
 
 	  
-	  { fn: (z,c) => { let y = new Complex(0,0); return z.add(y.mul(z,y.mul(z,z)),c); },
+	  { fn: "z.add(y.mul(z,y.mul(z,z)),c)",
 	    xmin: -2,
 	    xmax: 2,
 	    ymin: -2,
@@ -350,7 +366,7 @@ const myCollection =
 	    mandelbrot: false
 	  },
 
-	  { fn: (z,c) => { return z.add(z.mul(z,z),c); }, // quadratic
+	  { fn: "z.add(z.mul(z,z),c)", // quadratic
 	    xmin: -1.5,
 	    xmax: 0.6,
 	    ymin: -1.5,
@@ -358,7 +374,7 @@ const myCollection =
 	    mandelbrot: true
 	  },
 
-	  { fn: (z,c) => { let y = new Complex(0,0); return y.add(y.mul(z,y.mul(z,z)),c); }, // cubic
+	  { fn: "y.add(y.mul(z,y.mul(z,z)),c)", // cubic
 	    xmin: -1.5,
 	    xmax: 1.5,
 	    ymin: -1.5,
@@ -366,24 +382,7 @@ const myCollection =
 	    mandelbrot: true
 	  },
 
-	  { fn: (z,c) => { let y = new Complex(0,0); return y.add(y.mul(z,y.mul(z,y.mul(z,z))), c); }, // quartic
-	    xmin: -1.5,
-	    xmax: 1.5,
-	    ymin: -1.5,
-	    ymax: 1.5,
-	    mandelbrot: true
-	  },
-
-	  
-	  { fn: (z,c) => { let y = new Complex(0,0); return y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,z)))),c) ; }, // quintic
-	    xmin: -1.5,
-	    xmax: 1.5,
-	    ymin: -1.5,
-	    ymax: 1.5,
-	    mandelbrot: true
-	  },
-	  
-	  { fn: (z,c) => { let y = new Complex(0,0); return y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z))))),c); }, // hextic
+	  { fn: "y.add(y.mul(z,y.mul(z,y.mul(z,z))), c)", // quartic
 	    xmin: -1.5,
 	    xmax: 1.5,
 	    ymin: -1.5,
@@ -392,15 +391,15 @@ const myCollection =
 	  },
 
 	  
-	  { fn: (z,c) => { let y = new Complex(0,0); return y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z)))))),c); }, // heptic
+	  { fn: "y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,z)))),c)", // quintic
 	    xmin: -1.5,
 	    xmax: 1.5,
 	    ymin: -1.5,
 	    ymax: 1.5,
 	    mandelbrot: true
 	  },
-
-	  { fn: (z,c) => { let y = new Complex(0,0); return y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z))))))),c); }, // octic
+	  
+	  { fn: "y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z))))),c)", // hextic
 	    xmin: -1.5,
 	    xmax: 1.5,
 	    ymin: -1.5,
@@ -409,6 +408,213 @@ const myCollection =
 	  },
 
 	  
+	  { fn: "y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z)))))),c)", // heptic
+	    xmin: -1.5,
+	    xmax: 1.5,
+	    ymin: -1.5,
+	    ymax: 1.5,
+	    mandelbrot: true
+	  },
+
+	  { fn: "y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z))))))),c)", // octic
+	    xmin: -1.5,
+	    xmax: 1.5,
+	    ymin: -1.5,
+	    ymax: 1.5,
+	    mandelbrot: true
+	  },
+
+{
+fn: "y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z)))))),c)",
+mandelbrot: true,
+max_iter: 5000,
+xmax: -0.7078651685393259,
+xmin: -0.8146067415730337,
+ymax: 0.672573189522342,
+ymin: 0.5986132511556239
+},
+
+{
+fn: "y.add(y.mul(z,y.mul(z,z)),c)",
+mandelbrot: true,
+max_iter: 5000,
+xmax: -0.061797752808988804,
+xmin: -0.3707865168539326,
+ymax: 1.199537750385208,
+ymin: 0.9637904468412942,
+},
+
+
+{
+fn: "y.add(y.mul(z,y.mul(z,z)),c)",
+mandelbrot: true,
+max_iter: 5000,
+xmax: -0.19604006228169846,
+xmin: -0.26258258637377435,
+ymax: 1.1777429303349232,
+ymin: 1.135243031236868,
+},
+
+{
+fn: "y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,y.mul(z,z))))),c)",
+mandelbrot: true,
+max_iter: 5000,
+xmax: -0.5490468375205151,
+xmin: -0.6056684762024998,
+ymax: 0.3776379923124588,
+ymin: 0.3393047499887226
+},
+
+{
+c: new Complex (-0.7806090835694511,0.1112731263552053),
+fn: "z.add(z.mul(z,z),c)",
+mandelbrot: false,
+max_iter: 5000,
+xmax: -0.26217228464419473,
+xmin: -0.7191011235955056,
+ymax: 0.23112480739599373,
+ymin: -0.1325115562403698,
+},
+
+{
+c: new Complex(-0.7806090835694511,0.1112731263552053),
+fn: "z.add(z.mul(z,z),c)",
+mandelbrot: false,
+max_iter: 5000,
+xmax: -0.5856162942389429,
+xmin: -0.6147091416628091,
+ymax: 0.09160946911332113,
+ymin: 0.07255918195825739,
+},
+
+{
+ fn: "y.add(y.mul(z,y.mul(z,y.mul(z,z))), c)",
+ mandelbrot: true,
+ max_iter: 5000,
+ xmax: -1.0366115389471027,
+ xmin: -1.1752304002019947,
+ ymax: 0.3038561162010536,
+ ymin: 0.20493897212969575
+},
+
+
+{
+ fn: "y.add(y.mul(z,y.mul(z,y.mul(z,z))), c)",
+ mandelbrot: true,
+ max_iter: 5000,
+ xmax: -0.38896603964145937,
+ xmin:-0.41901275091528845,
+ ymax: 0.503385557014347,
+ ymin: 0.48377021896909067
+},
+
+
+{
+ c: new Complex (-0.10159388375202118, 0.7819277030417714),
+ fn: "z.add(z.mul(z,z),c)",
+ mandelbrot: false,
+ max_iter: 5000,
+ xmax: -0.2836687381525523,
+ xmin: -0.2859627712550323,
+ ymax: 0.5049808466653736,
+ ymin: 0.5036669721996696
+},
+
+{
+ fn: "y.add(y.mul(z,y.mul(z,y.mul(z,y.mul(z,z)))),c)",
+ mandelbrot: true,
+ max_iter: 5000,
+ xmax: -0.5155554338753798,
+ xmin: -0.5155585472270902,
+ ymax: 0.7555840731995819,
+ ymin: 0.7555824430082831
+},
+
+{
+ c: new Complex (-0.10159388375202118, 0.7819277030417714),
+ fn: "z.add(y.mul(z,y.mul(z,z)),c)",
+ mandelbrot: false,
+ max_iter: 5000,
+ xmax: -0.23970037453183513,
+ xmin: -0.696629213483146,
+    ymax: -0.1510015408320493,
+ ymin: -0.5208012326656397
+},
+
+{
+ fn: "z.add(z.mul(z,z),c)",
+ mandelbrot: true,
+ max_iter: 5000,
+ xmax: 0.0730337078651686,
+ xmin: -0.25337078651685396,
+ ymax: 1.12095531587057,
+ ymin: 0.7742681047765793
+},
+
+{
+ fn: "z.add(z.mul(z,z),c)",
+ mandelbrot: true,
+ max_iter: 5000,
+ xmax: -0.12378697975844802,
+ xmin: -0.16657408576358207,
+ ymax: 0.8843105785598799,
+ ymin: 0.8469175049441953
+},
+
+{
+ fn: "z.add(z.mul(z,z),c)",
+ mandelbrot: true,
+ max_iter: 5000,
+ xmax: -0.13819301017636984,
+ xmin: -0.14063819344258086,
+ ymax: 0.8571583684083105,
+ ymin: 0.8558381254219521
+},
+
+{
+ c: new Complex (-0.7806090835694511, 0.1112731263552053),
+ fn: "z.add(z.mul(z,z),c)",
+ mandelbrot: false,
+ max_iter: 5000,
+ xmax: 0.39700374531835214,
+ xmin: -0.26217228464419473,
+ ymax: 0.909090909090909,
+ ymin: 0.3913713405238828
+},
+
+
+{
+ c: new Complex (-0.7806090835694511, 0.1112731263552053),
+ fn: "z.add(z.mul(z,z),c)",
+ mandelbrot: false,
+ max_iter: 5000,
+ xmax: 0.0674157303370787,
+ xmin: -0.10416754337976403,
+ ymax: 0.6562140165859054,
+ ymin: 0.5333653054005094
+},
+
+{
+c: new Complex (-0.7806090835694511, 0.1112731263552053),
+fn: "z.add(z.mul(z,z),c)",
+mandelbrot: false,
+max_iter: 5000,
+xmax: -0.02940035202984312,
+xmin: -0.033441852471222965,
+ymax: 0.6031442751573616,
+ymin: 0.5998761565856717
+},
+
+{
+ c: new Complex (-0.7806090835694511, 0.1112731263552053),
+ fn: "z.add(z.mul(z,z),c)",
+ Mandelbrot: false,
+ max_iter: 5000,
+ xmax: -0.03197359201124602,
+ xmin: -0.03211739071608912,
+ ymax: 0.6017846572615893,
+ ymin: 0.6016688379593568
+}	  
       ];
 
 const myColors =
@@ -421,12 +627,21 @@ const myColors =
 	    blue_power: 1/2,
 	  },
 
-	  { red_base: 2000,
+	  { red_base: 1000,
 	    red_power: 1/2,
-	    green_base: 2000,
-	    green_power: 1/2,
-	    blue_base: 1000,
-	    blue_power: 1/4,
+	    green_base: 0,
+	    green_power: 1,
+	    blue_base: 0,
+	    blue_power: 1,
+	  },
+	  
+
+	  { red_base: 500,
+	    red_power: 0.7,
+	    green_base: 300,
+	    green_power: 0.7,
+	    blue_base: 200,
+	    blue_power: 0.5,
 	  },
 
 	  { red_base: 2000,
@@ -437,7 +652,7 @@ const myColors =
 	    blue_power: 1/4,
 	  },
 
-	  { red_base: 1200,
+	  { red_base: 1000,
 	    red_power: 1/4,
 	    green_base: 3000,
 	    green_power: 1/2,
@@ -445,20 +660,19 @@ const myColors =
 	    blue_power: 1/4,
 	  },
 
-	  { red_base: 3000,
+	  { red_base: 1000,
 	    red_power: 1/3,
 	    green_base: 3000,
 	    green_power: 1/2,
 	    blue_base: 2000,
-	    blue_power: 1/4,
+	    blue_power: 1/2,
 	  },
-
 	  
       ];
 
 function init(canvas_id)
 {
-    const fract1 = new ComplexFractalMaker(myCollection, myColors, canvas_id,10000);
-    setTimeout(fract1.run(),100);
+    const fract1 = new ComplexFractalMaker(myCollection, myColors, canvas_id);
+    fract1.run();
     return fract1;
 }
