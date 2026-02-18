@@ -1,0 +1,84 @@
+<html>
+
+  <head>
+    
+    <style>
+
+      :root {
+	  --lightBlue: rgb(202, 233, 245);
+	  --darkBlue: rgb(134, 197, 216);
+	  --serifFont: "Garamond", "Baskerville";
+	  --sansSerifFont: "Playfair display";
+      }
+      
+      body {  font-family: var(--serifFont); background-image: linear-gradient(180deg, var(--lightBlue), var(--darkBlue)); background-attachment: fixed;}
+
+      h1 { font-family: var(--serifFont); font-size: 3.3em; display: block; margin:auto;  padding: 0.5em; font-weight: 400; text-align: center;}
+
+      h2 { font-family: var(--serifFont); font-size: 1.8em; display: block; margin: auto; font-weight: 400; text-align: center; font-variant-caps: small-caps; }
+
+      p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em;}
+
+      p.small { text-align: justify; font-size:1em;}
+
+      .nava { style="position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:2;" }
+
+      .nava a { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
+      .nava a:hover { border-bottom: solid 1px black; color: black; text-decoration: none;}
+
+      .container { display: flex; align-items: stretch; flex-direction: row; }
+
+      a.invisible { text-decoration: underline; font: inherit; color: inherit; }
+      a.invisible:hover { text-decoration: underline; color: blue; }
+      
+    </style>
+
+
+    <script src="./fractal.js"></script>
+
+  </head>
+  
+  <body onload="init('fractal');">
+    
+    <nav class="nava">
+      <a href="./index.html">Home</a>
+      <a href="./research.html">Research</a>
+      <a href="./publications.html">Publications</a>
+      <a href="cv.html">CV</a>
+      <a href="teaching.html">Teaching</a>
+      <a  style="border-bottom: solid 1px black;" href="about.html">About</a>
+    </nav>
+    
+    <div class="container" style="position: relative; top:5%; left: 0px;  width: 100%; height: 80%; display: flex;">
+      
+      <div style="position: relative; top: 20px; left: 0px; bottom: 0px; overflow-y: auto; flex: 55%; scrollbar-color: blue rgb(202,233,245);">
+	
+	<h1>Dr. Fr&eacute;d&eacute;ric Latr&eacute;moli&egrave;re, PhD</h1>
+	
+
+	  <h2>About this site</h2>
+	  
+	  <p class="centered" style="margin: auto; width: 50%;">This website was designed manually using Emacs, simple HTML, CSS and JavaScript (for the fractal pictures), as well as a Python script using the ArXiv library to gather the publications automatically from the ArXiv website.</p>
+
+
+	<h2>Contact Information</h2>
+	
+	<div style="position: relative; top: 20px; left: 0px; margin:auto; text-align:center;">
+	  <ul style="margin: auto; width: 50%; text-align: left; padding: 30px; font-size: 1.3em;">
+	    <li>Email: <a class="invisible" href='mailto:frederic@math.du.edu'>frederic@math.du.edu</a></li>
+	    <li>Office: <a class="invisible" href='https://www.du.edu/media/documents/maps/map-campus.pdf'>Knudson Hall</a> CMK 206</li>
+	  </ul>
+
+	  
+	</div>
+
+      </div>
+      
+      <div style="position: relative; flex:35%;">
+	<canvas id="fractal" style='width:90%; height:100%; border: solid 1px black; background-color: rgb(134,197,216);'></canvas>
+      </div>
+      
+    </div>
+  </body>
+  
+</html>

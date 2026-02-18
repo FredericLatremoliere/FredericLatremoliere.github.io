@@ -1,0 +1,127 @@
+<html>
+
+  <head>
+    
+    <style>
+
+      :root {
+	  --lightBlue: rgb(202, 233, 245);
+	  --darkBlue: rgb(134, 197, 216);
+	  --serifFont: "Garamond", "Baskerville";
+	  --sansSerifFont: "Playfair display";
+      }
+      
+      body {  font-family: var(--serifFont); background-image: linear-gradient(180deg, var(--lightBlue), var(--darkBlue)); background-attachment: fixed;}
+
+      h1 { font-family: var(--serifFont); font-size: 3.3em; display: block; margin:auto;  padding: 0.5em; font-weight: 400; text-align: center;}
+
+      h2 { font-family: var(--serifFont); font-size: 1.8em; display: block; margin: auto; font-weight: 400; text-align: center; font-variant-caps: small-caps; }
+
+      p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em;}
+      
+      p.small { text-align: justify; font-size:1em;}
+
+      .nava { style="position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:2;" }
+
+      .nava a { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
+      .nava a:hover { border-bottom: solid 1px black; color: black;}
+
+      .container { display: flex; align-items: stretch; flex-direction: row; }
+
+      a.invisible { text-decoration: underline; font: inherit; color: inherit; }
+      a.invisible:hover { text-decoration: underline; color: blue; }
+
+      a.papertitle { text-decoration: underline; font: inherit; color: inherit; font-style: italic; }
+      a.papertitle:hover { text-decoration: underline; font: inherit; color: blue; font-style: italic; }
+
+      
+      li { text-align: justify; font-size: 1.3em; }
+      
+    </style>
+
+
+    <script src="./fractal.js"></script>
+
+  </head>
+  
+  <body onload="init('fractal'); init('fractal2');">
+    
+    <nav class="nava">
+      <a href="./index.html">Home</a>
+      <a style="border-bottom: solid 1px black;" href="./research.html">Research</a>
+      <a href="./publications.html">Publications</a>
+      <a href="cv.html">CV</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="about.html">About</a>
+    </nav>
+    
+    <div class="container" style="position: relative; top:5%; left: 0px;  width: 100%; height: 80%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      
+      <div>
+	
+	<h1>Dr. Fr&eacute;d&eacute;ric Latr&eacute;moli&egrave;re, PhD</h1>
+	
+	<h2>Teaching </h2>
+	
+	<p class="centered" style="margin: auto; width: 90%;">
+	  I strongly believe in the role of a teacher-scholar: in exchange for the freedom of conducting research in mathematics, I share my knowledge and understanding of this deep subject with future generations of mathematicians, scientists and engineers. This exchange forms the basis of my social contract, so to speak. My teaching philosophy, influenced by the rigor of the French education I received and the flexibility of the north american system, both in the US and Canada I have worked within, emphasizes the emergence of skill from understanding, with a conceptual focus. I love to contextualize my teaching with history, philosophy, and my understanding of where the subject goes from the particular scope of a course to the larger mathematical and scientific picture.
+	</p>
+	
+	<p class="centered" style="margin: auto; width: 90%;">In the process of my courses, I often develop some notes for students. I post some examples here. <span style="font-weight: bold;">I hold the copyright rights for all the notes and videos listed on this page. Reproduction and redistribution is not allowed.</span></p>
+	
+	<ul style="margin:auto; width: 50%">
+	  <li><a href='./PDFs/short.pdf' class='papertitle'>Notes for Real Analysis I</a></li>
+	  <li><a href='./PDFs/notes2.pdf' class='papertitle'>Notes for Topology I</a></li>
+	  <li><a href='./PDFs/calculus-3-notes.pdf' class='papertitle'>Notes for Calculus 3</a></li>
+	  <li><a href='./PDFs/c1.pdf' class='papertitle'>Notes for Calculus 1</a></li>
+	</ul>
+	
+      </div>
+      
+      <div style="text-align:center;">
+	<canvas id="fractal" style='width:90%; height:100%; border: solid 1px black; background-color: rgb(134,197,216); margin:auto;'></canvas>
+      </div>
+
+
+      <div style="text-align:center;">
+	<canvas id="fractal2" style='width:90%; height:100%; border: solid 1px black; background-color: rgb(134,197,216); margin: auto;'></canvas>
+      </div>
+      
+      
+
+      <div>
+
+	<p class="centered" style="margin: auto; width: 90%;">
+	  In addition, during the COVID experiments, I posted videos on a <a href='https://www.youtube.com/@fredericlatremolierephd686' class="invisible">youtube channel</a> on linear algebra and on C*-algebras, which you are welcome to check.
+	</p>
+
+	
+	<h2>Conferences</h2>
+	
+	<p class="centered" style="margin: auto; width: 90%;">
+	  Conferences and seminars are a principal means to disseminate my research results. My favorite opportunity was to give a mini-course at the Hausdorff institute of Mathematics (in the Lipschitz lecture Hall :)) on quantum metric spaces, which <a href='./cqms-2.pdf' class='invisible'>I am happy to share</a>.
+	</p>
+
+
+	<p class="centered" style="margin: auto; width: 90%;">There are a few recordings of lectures I gave in the past on YouTube.</p>
+	<ul style="margin:auto; width: 50%">
+	  <li><a href='https://www.youtube.com/watch?v=awzPDo2ZaHs&t=3186s' class='papertitle'>North Atlantic Noncommutative Geometry Seminar 12/17/2025</a> (<a href='./PDFs/' class='invisible'>slides</a>)</li>
+	  <li><a href='https://www.youtube.com/watch?v=x0Zn51mEauY&t=4s' class='papertitle'>Pragues NCGT Seminar 11/7/2021</a> (<a href='./PDFs/' class="invisible">slides</a>)</li>
+	  <li><a href='https://www.youtube.com/watch?v=fAix-l5L0vI&t=6587s' class='papertitle'>North Atlantic Noncommutative Geometry Seminar 3/24/2021</a></li>
+	</ul>
+
+      </div>
+      <div>
+	
+		<p class="centered" style="margin: auto; width: 90%;">In addition, here are some slides of other talks. A complete list of presentations can be found on my <a href='./cv.html' class='invisible'>cv</a>.</p>
+	<ul style="margin:auto; width: 50%">
+	  <li></li>
+	</ul>
+	
+      </div>
+
+      
+    </div>
+  </body>
+  
+</html>

@@ -1,0 +1,123 @@
+<html>
+
+  <head>
+    
+    <style>
+
+      :root {
+	  --lightBlue: rgb(202, 233, 245);
+	  --darkBlue: rgb(134, 197, 216);
+	  --serifFont: "Garamond", "Baskerville";
+	  --sansSerifFont: "Playfair display";
+      }
+      
+      body {  font-family: var(--serifFont); background-image: linear-gradient(180deg, var(--lightBlue), var(--darkBlue)); background-attachment: fixed;}
+
+      h1 { font-family: var(--serifFont); font-size: 3.3em; display: block; margin:auto;  padding: 0.5em; font-weight: 400; text-align: center;}
+
+      h2 { font-family: var(--serifFont); font-size: 1.8em; display: block; margin: auto; font-weight: 400; text-align: center; font-variant-caps: small-caps; }
+
+      p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em;}
+      
+      p.small { text-align: justify; font-size:1em;}
+
+      .nava { style="position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:2;" }
+
+      .nava a { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
+      .nava a:hover { border-bottom: solid 1px black; color: black;}
+
+      .container { display: flex; align-items: stretch; flex-direction: row; }
+
+      a.invisible { text-decoration: underline; font: inherit; color: inherit; }
+      a.invisible:hover { text-decoration: underline; color: blue; }
+
+      li { text-align: justify; font-size: 1.3em; }
+      
+    </style>
+
+
+    <script src="./fractal.js"></script>
+
+  </head>
+  
+  <body onload="init('fractal'); init('fractal2');">
+    
+    <nav class="nava">
+      <a href="./index.html">Home</a>
+      <a style="border-bottom: solid 1px black;" href="./research.html">Research</a>
+      <a href="./publications.html">Publications</a>
+      <a href="cv.html">CV</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="about.html">About</a>
+    </nav>
+    
+    <div class="container" style="position: relative; top:5%; left: 0px;  width: 100%; height: 80%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      
+      <div>
+	
+	<h1>Dr. Fr&eacute;d&eacute;ric Latr&eacute;moli&egrave;re, PhD</h1>
+	
+	<h2> Research </h2>
+	  
+	  <p class="centered" style="margin: auto; width: 90%;">
+	    The primary purpose of our research is to bring forth an analytic framework, constructed around Gromov-Hausdorff-like hypertopologies on classes of quantum spaces, to bear on problems from mathematical physics and noncommutative geometry. As spectral triples have emerged as the preferred means to encode Riemannian geometry in noncommutative geometry, our focus is thus on the development of a distance on the space of metric spectral triples, up to unitary equivalence. We call this distance the <i>spectral propinquity</i>. Our results are available on this site in our <a href="./publications.html">list of publications</a>, as well as on the <a href="https://arxiv.org/search/math?searchtype=author&query=Latremoliere%2C+F">ArXiv</a>. Published papers are of course available at <a href="https://mathscinet-ams-org.du.idm.oclc.org/mathscinet/author?authorId=760927">MathSciNet</a>.</p>
+
+	  <p class="centered" style="margin: auto; width: 90%;">
+	    The central themes of this project have been the construction of noncommutative analogues of the Gromov-Hausdorff distance adapted to C*-algebras and the initiation and advancement of a theory of metric convergence for various structures over C*-algebras, such as modules, group actions, and most recently, all strongly motivated by potential applications to mathematical physics. Our proposal offers to explore the metric aspects of noncommutative geometry from the perspective of our noncommutative analogues of the Gromov-Hausdorff distance called the Gromov-Hausdorff propinquity.</p>
+      </div>
+      
+      <div style="text-align:center;">
+	<canvas id="fractal" style='width:90%; height:90%; border: solid 1px black; background-color: rgb(134,197,216); margin:auto;'></canvas>
+      </div>
+
+      <div style="text-align:center;">
+	<canvas id="fractal2" style='width:90%; height:90%; border: solid 1px black; background-color: rgb(134,197,216); margin: auto;'></canvas>
+      </div>
+
+
+      <div>
+
+
+<p class="centered" style="margin: auto; width: 90%;">
+Our motivation for this project emerges from four connected observations. First, a recurrent theme in mathematical physics is  the construction of quantum models as limits of some discrete, often even finite models, when some metric on the spaces are involved. Second, certain approaches to quantum cosmology and quantum gravity involve an as-of-yet not fully understood geometry on the space of all space-times, for instance in the work of Wheeler. Notably, the first occurrence and study of the Gromov-Hausdorff distance was actually due to Edwards, motivated by Wheeler's superspace approach to quantum gravity. Third, a set of converging ideas in quantum physics suggests the possibility that at the Plank scale, space-time may be best described as a noncommutative space, and metric considerations have become a component of this research, including many references to our work. Fourth, remarkable new developments in geometry arose from the use of the Gromov-Hausdorff distance and the metric properties of manifolds and related spaces. We thus aim at developing a theory which allow us to formalize physics problems and problems from noncommutative geometry at the level of hyperspaces of quantum metric spaces and spectral triples, so as to apply to them new analytic techniques.</p>
+
+      </div>
+
+      
+      <div>
+	<p class="centered" style="margin: auto; width: 90%;">Our principle method for this project is to discover new properties and to study core examples to further our understanding of the spectral propinquity. Our proposed examples include C*-crossed-products, almost commutative spectral triples, fractals, inductive limits, among others. Our goal is to gain new insights from noncommutative metric geometry about problems in noncommutative geometry or mathematical  physics.</p> 
+
+<p class="centered" style="margin: auto; width: 90%;">In the broader, long term picture, an intended application of our construction of metrics on the spaces of spectral triples is the potential ability to construct new quantum field theories from finite dimensional approximations --- physics and geometry as emergent. Specifically, the idea is that it may be much easier to avoid various problems with divergence which plague the construction of QFT by first working with finite dimensional models. If the class of such models is endowed with a complete metric with nice properties, it would then be possible to establish the existence of a desired limit QFT by proving that some finite models form Cauchy sequences for one of the metric introduced in our research. This idea could be seen as a very far-reaching, overarching theme and motivation for the mathematics we now explore.</p>
+      </div>
+
+      <div>
+	<h2>References</h2>
+	<p class="centered">
+	  My research is easily accessible online, <a class="invisible" href="./publications.html">including on this website</a>, and some resources may prove helpful in providing an introduction to this subject.
+	</p>
+	<ul>
+	  <li>All my <a class="invisible" href="./publications.html">publications</a> are available on the <a href="https://arxiv.org/search/math?searchtype=author&query=Latremoliere%2C+F">ArXiv</a>.</li>
+	  <li>The notes, available in the <a class="invisible" href="./teaching.html">Teaching section</a> of this site, for a <a class="invisible">mini-course</a> which I gave at the <a href="">Hausdorff institute of mathematics</a> in Bonn, Germany can be a good place to get initiated to the theory of quantum compact metric spaces and the Gromov-Hausdorff propinquity.</li>
+	  <li>Some recordings of lectures of conferences I presented in the past are, linked in the <a class="invisible" href="./teaching.html">Teaching section</a> of this site, also offer a good way to get an idea of the research I carry out.</li>
+	</ul>
+	  <p class="centered">Here are five selected publications; please refer to the <a class="invisible" href="./publications.html">publications</a> section for a complete list.</p>
+	    <ul>
+	      <li><i>Continuity of the spectrum of Dirac operators of spectral triples for the spectral propinquity</i>, F. Latr&eacute;moli&egrave;re, Mathematische Annalen 389 (2025) no. 1, pp. 765--817, ArXiv: <a class="invisible" href="https://arxiv.org/abs/2112.11000">2112.11000</a></li>
+	      
+	      <li><i>The Gromov-Hausdorff propinquity for metric spectral triples</i>, F. Latr&eacute;moli&egrave;re, Advances in Mathematics 404(2022) part A, Paper No. 108393, 56 pp., ArXiv: <a class="invisible" href="https://arxiv.org/abs/1811.10843">1811.10843</a></li>
+	      
+	       <li><i>Metric approximations of spectral triples on the Sierpiński gasket and other fractal curves</i>, Therese-Marie Landry ; Michel Lapidus ; F. Latr&eacute;moli&egrave;re, Advances in Mathematics 385(2021), Paper No. 107771, 43pp., ArXiv: <a class="invisible" href="https://arxiv.org/abs/2010.06921">2010.06921</a></li>	 
+	      <li><i>Convergence of spectral triples on fuzzy tori to spectral triples on quantum tori</i>, F. Latr&eacute;moli&egrave;re, Communications in Mathematical physics 388 (2021), no. 2, pp. 1049--1128, ArXiv: <a class="invisible" href="https://arxiv.org/abs/2102.03729">2102.03729</a></li>
+		
+	      <li><i>The dual Gromov-Hausdorff propinquity</i>, F. Latr&eacute;moli&egrave;re, Journal de Mathematiques Pures et Appliquees (9) 103(2015), no 2, pp. 303--351, ArXiv: <a class="invisible" href="https://arxiv.org/abs/1311.0104">1311.0104</a></li>
+	    </ul>
+	  </li>
+	</ul>
+      </div>
+
+
+      
+    </div>
+  </body>
+  
+</html>
