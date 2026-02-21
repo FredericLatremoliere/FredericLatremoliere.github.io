@@ -1,4 +1,4 @@
-class Complex
+class Complex // This class must be fast, so instead of a clean functional design, I choose a in-place approach to manage memory allocations
 {
     constructor (x,y) { this.set(x,y); };
     set(x,y) {  this.re = x; this.im = y; return this; };
@@ -650,6 +650,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
