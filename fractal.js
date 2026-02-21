@@ -165,7 +165,7 @@ this.canvas.addEventListener("pointerup", e => {
 	let ctx = this.ctx;
 	this.wait=true;
 	ctx.clearRect(0,0,this.fractal.width,this.fractal.height);
-	ctx.fillStyle = "black;"
+	ctx.fillStyle = "black";
 	ctx.font = "20px Times";
 	ctx.fillText( "Please wait as a new fractal is being computed...", 10,20);
     }
@@ -650,6 +650,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
