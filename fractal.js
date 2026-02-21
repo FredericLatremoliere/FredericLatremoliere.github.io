@@ -89,86 +89,63 @@ class ComplexFractalMaker
 	    
 	    // Set up the canvas
 
-	    this.canvas.addEventListener("mouseenter", e=>
-		{
-		
-		});
-	    
-	    this.canvas.addEventListener("mousemove",  e=>
-		{
-		    if(!this.wait)
-		    {
-			this.draw(Math.round(e.clientX-this.bounding.left),Math.round(e.clientY-this.bounding.top),true,this.box);
-		    }
-		});
-	    
-	    this.canvas.addEventListener("mousedown", e=>
-		{
-		    if(!this.wait)
-		    {
-			this.boxx = Math.round(e.clientX - this.bounding.left);
-			this.boxy = Math.round(e.clientY - this.bounding.top);
-			this.draw(this.boxx,this.boxy,true,true);
-		    }
-		});
-	    
-	    this.canvas.addEventListener("mouseup", e =>
-		{
-		    if(!this.wait)
-		    {
-			this.axes=this.box=false;
-			let xpix, xxpix, ypix, yypix;
-			
-			let x = Math.round(e.clientX - this.bounding.left);
-			let y = Math.round(e.clientY - this.bounding.top);
-			
-			if(this.boxx>x)
-			{
-			    xpix = x;
-			    xxpix = this.boxx;
-			}
-			else
-			{
-			    xpix = this.boxx;
-			    xxpix = x;
-			}
-			
-			if(this.boxy>y)
-			{
-			    ypix = y;
-			    yypix = this.boxy;
-			}
-			else
-			{
-			    ypix = this.boxy;
-			    yypix = y;
-			}
-			
-			if(xxpix-xpix < 5 && yypix-ypix < 5)
-			{
-			    // Click
-			    this.run();
-			}
-			else
-			{
-			    let frac = this.fractal;
-			    let w = (frac.xmax-frac.xmin) / frac.width;
-			    let h = (frac.ymax-frac.ymin) / frac.height;
-			    let xm = frac.xmin;
-			    let ym = frac.ymax;
-			    
-			    frac.xmin = xm +  w * xpix;
-			    frac.ymin = ym -  h * yypix;
-			    frac.xmax = xm +  w * xxpix;
-			    frac.ymax = ym -  h * ypix;
-			    clearTimeout(this.timer_id);
-			    this.wait = false;
-			    this.computeScreen();
-			    this.worker.postMessage(this.fractal);
-			}
-		    }
-		});
+this.canvas.addEventListener("mousemove", e => {
+    if (!this.wait) {
+        const rect = this.canvas.getBoundingClientRect();
+        const x = Math.round(e.clientX - rect.left);
+        const y = Math.round(e.clientY - rect.top);
+        
+        this.draw(x, y, true, this.box);
+    }
+});
 
+this.canvas.addEventListener("mousedown", e => {
+    if (!this.wait) {
+        const rect = this.canvas.getBoundingClientRect();
+        this.boxx = Math.round(e.clientX - rect.left);
+        this.boxy = Math.round(e.clientY - rect.top);
+        this.draw(this.boxx, this.boxy, true, true);
+    }
+});
+
+this.canvas.addEventListener("mouseup", e => {
+    if (!this.wait) {
+        this.axes = this.box = false;
+        const rect = this.canvas.getBoundingClientRect();
+        
+        let x = Math.round(e.clientX - rect.left);
+        let y = Math.round(e.clientY - rect.top);
+        
+        let xpix, xxpix, ypix, yypix;
+        if (this.boxx > x) { xpix = x; xxpix = this.boxx; }
+        else { xpix = this.boxx; xxpix = x; }
+
+        if (this.boxy > y) { ypix = y; yypix = this.boxy; }
+        else { ypix = this.boxy; yypix = y; }
+        
+        if (xxpix - xpix < 5 && yypix - ypix < 5) {
+            this.run();
+        } else {
+            // Zoom logic using the fresh rect
+            let frac = this.fractal;
+            let w = (frac.xmax - frac.xmin) / frac.width;
+            let h = (frac.ymax - frac.ymin) / frac.height;
+            let xm = frac.xmin;
+            let ym = frac.ymax;
+            
+            frac.xmin = xm + w * xpix;
+            frac.ymin = ym - h * yypix;
+            frac.xmax = xm + w * xxpix;
+            frac.ymax = ym - h * yypix; // Note: You had a small typo here in original (yypix vs ypix)
+            
+            clearTimeout(this.timer_id);
+            this.wait = false;
+            this.computeScreen();
+            this.worker.postMessage(this.fractal);
+        }
+    }
+});
+	
 	    this.canvas.addEventListener("mouseleave", e=>
 		{ if(!this.wait) { this.draw(); } }); 
 
@@ -673,6 +650,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
