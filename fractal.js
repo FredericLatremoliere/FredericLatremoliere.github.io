@@ -43,11 +43,6 @@ class ComplexFractalMaker
 	    this.resizeCanvasToDisplaySize()
 	    this.ctx = this.canvas.getContext("2d");
 	    let bounding = this.canvas.getBoundingClientRect();
-	    this.cleft = Math.round(bounding.left);
-	    this.ctop = Math.round(bounding.top);
-	    this.cright = Math.round(bounding.right);
-	    this.cbottom = Math.round(bounding.bottom);
-
 	    
 	    this.fractal =
 		{
@@ -99,31 +94,34 @@ class ComplexFractalMaker
 	    
 	    this.canvas.addEventListener("mousemove",  e=>
 		{
+			let bounding = this.canvas.getBoundingClientRect();
 		    if(!this.wait)
 		    {
-			this.draw(Math.round(e.clientX-this.cleft),Math.round(e.clientY-this.ctop),true,this.box);
+			this.draw(Math.round(e.clientX-bounding.left),Math.round(e.clientY-bounding.top),true,this.box);
 		    }
 		});
 	    
 	    this.canvas.addEventListener("mousedown", e=>
 		{
+			let bounding = this.canvas.getBoundingClientRect();
 		    if(!this.wait)
 		    {
-			this.boxx = Math.round(e.clientX - this.cleft);
-			this.boxy = Math.round(e.clientY - this.ctop);
+			this.boxx = Math.round(e.clientX - bounding.left);
+			this.boxy = Math.round(e.clientY - bounding.top);
 			this.draw(this.boxx,this.boxy,true,true);
 		    }
 		});
 	    
 	    this.canvas.addEventListener("mouseup", e =>
 		{
+			let bounding = this.canvas.getBoundingClientRect();
 		    if(!this.wait)
 		    {
 			this.axes=this.box=false;
 			let xpix, xxpix, ypix, yypix;
 			
-			let x = Math.round(e.clientX - this.cleft);
-			let y = Math.round(e.clientY - this.ctop);
+			let x = Math.round(e.clientX - bounding.left);
+			let y = Math.round(e.clientY - bounding.top);
 			
 			if(this.boxx>x)
 			{
@@ -676,3 +674,4 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
