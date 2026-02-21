@@ -40,7 +40,8 @@ class ComplexFractalMaker
 	this.canvas = document.getElementById(canvas_id);
 	if(this.canvas)
 	{
-	    this.resizeCanvasToDisplaySize()
+	    this.resizeCanvasToDisplaySize();
+		this.addEventListenner("resize", e=>{return this.resizeCanvasToDisplaySize();});
 	    this.ctx = this.canvas.getContext("2d");
 	    let bounding = this.canvas.getBoundingClientRect();
 	    
@@ -97,8 +98,7 @@ class ComplexFractalMaker
 			let bounding = this.canvas.getBoundingClientRect();
 		    if(!this.wait)
 		    {
-			//this.draw(Math.round(e.clientX-bounding.left),Math.round(e.clientY-bounding.top),true,this.box);
-				this.draw(Math.round(e.offsetX),Math.round(e.offsetY),true,this.box);
+			this.draw(Math.round(e.clientX-bounding.left),Math.round(e.clientY-bounding.top),true,this.box);
 		    }
 		});
 	    
@@ -675,6 +675,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
