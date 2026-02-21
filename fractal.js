@@ -41,7 +41,7 @@ class ComplexFractalMaker
 	if(this.canvas)
 	{
 	    this.resizeCanvasToDisplaySize();
-		window.addEventListenner("resize", e=>{return this.resizeCanvasToDisplaySize();});
+		window.addEventListener("resize", e=>{return this.resizeCanvasToDisplaySize();});
 	    this.ctx = this.canvas.getContext("2d");
 	    let bounding = this.canvas.getBoundingClientRect();
 	    
@@ -675,6 +675,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
