@@ -19,7 +19,7 @@ class Complex
 		  return this.set(z.re/m, -z.im / m); }
     div(f1,f2)  { let m = z.get_mod2();
 		  let x1 = f1.re;
-		  let x2= f1.re;
+		  let x2= f2.re;
 		  return this.set((x1 * x2 - f1.im*f2.im)/m, (-x1 * f2.im - f1.im * x2)/m); }
     
     toPolar()   { return { r: this.get_mod(), theta: 2 * Math.atan(y / (x + r) ) }; }
@@ -44,7 +44,6 @@ class ComplexFractalMaker
 		
 	    this.ctx = this.canvas.getContext("2d");
 	    this.bounding = this.canvas.getBoundingClientRect();
-	    window.addEventListener("resize", e=>{ this.bounding = this.canvas.getBoundingClientRect(); });
 		
 		this.fractal =
 		{
@@ -99,7 +98,7 @@ this.canvas.addEventListener("mousemove", e => {
     }
 });
 
-this.canvas.addEventListener("mousedown", e => {
+this.canvas.addEventListener("pointerdown", e => {
     if (!this.wait) {
         const rect = this.canvas.getBoundingClientRect();
         this.boxx = Math.round(e.clientX - rect.left);
@@ -108,7 +107,7 @@ this.canvas.addEventListener("mousedown", e => {
     }
 });
 
-this.canvas.addEventListener("mouseup", e => {
+this.canvas.addEventListener("pointerup", e => {
     if (!this.wait) {
         this.axes = this.box = false;
         const rect = this.canvas.getBoundingClientRect();
@@ -650,6 +649,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
