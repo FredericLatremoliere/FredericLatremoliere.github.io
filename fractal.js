@@ -136,7 +136,7 @@ this.canvas.addEventListener("mouseup", e => {
             frac.xmin = xm + w * xpix;
             frac.ymin = ym - h * yypix;
             frac.xmax = xm + w * xxpix;
-            frac.ymax = ym - h * yypix; // Note: You had a small typo here in original (yypix vs ypix)
+            frac.ymax = ym - h * ypix; 
             
             clearTimeout(this.timer_id);
             this.wait = false;
@@ -650,6 +650,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
