@@ -6,7 +6,7 @@ class Complex
     
     add(t1,t2) { return this.set(t1.re + t2.re, t1.im + t2.im); }
     sub(t1,t2) { return this.set(t1.re - t2.re, t1.im - t2.im); }
-    conj(z)    { return this.set(z.re,-ze.im); }
+    conj(z)    { return this.set(z.re,-z.im); }
     mul(f1,f2) { let x1 = f1.re; let x2 = f2.re;
 		 return this.set( x1 * x2 - f1.im * f2.im, x1*f2.im + f1.im*x2) }
     get_mod2()  { return this.re*this.re + this.im*this.im; }
@@ -17,12 +17,13 @@ class Complex
     
     inv(z)      { let m = z.get_mod2();
 		  return this.set(z.re/m, -z.im / m); }
-    div(f1,f2)  { let m = z.get_mod2();
+    div(f1,f2)  { 
+		  let m = f2.get_mod2();
 		  let x1 = f1.re;
 		  let x2= f2.re;
-		  return this.set((x1 * x2 - f1.im*f2.im)/m, (-x1 * f2.im - f1.im * x2)/m); }
+		  return this.set((x1 * x2 + f1.im*f2.im)/m, (-x1 * f2.im + f1.im * x2)/m); }
     
-    toPolar()   { return { r: this.get_mod(), theta: 2 * Math.atan(y / (x + r) ) }; }
+    toPolar()   { return { r: this.get_mod(), theta: 2 * Math.atan(this.im / (this.re + this.get_mod()) ) }; }
     fromPolar(r,theta) { this.re = r * Math.cos(theta); this.im = r*Math.sin(theta); return this; }
 
     powInt(z,n) { this.re = 1;
@@ -649,6 +650,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
