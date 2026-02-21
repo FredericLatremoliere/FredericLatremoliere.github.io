@@ -41,14 +41,15 @@ class ComplexFractalMaker
 	if(this.canvas)
 	{
 	    this.resizeCanvasToDisplaySize();
-		window.addEventListener("resize", e=>{return this.resizeCanvasToDisplaySize();});
+		
 	    this.ctx = this.canvas.getContext("2d");
-	    let bounding = this.canvas.getBoundingClientRect();
-	    
-	    this.fractal =
+	    this.bounding = this.canvas.getBoundingClientRect();
+	    window.addEventListener("resize", e=>{ this.bounding = this.canvas.getBoundingClientRect(); });
+		
+		this.fractal =
 		{
-		    height : Math.round(bounding.height),
-		    width : Math.round(bounding.width),
+		    height : Math.round(this.bounding.height),
+		    width : Math.round(this.bounding.width),
 		    xmin : -2,
 		    xmax : 2,
 		    ymin : -2,
@@ -95,34 +96,31 @@ class ComplexFractalMaker
 	    
 	    this.canvas.addEventListener("mousemove",  e=>
 		{
-			let bounding = this.canvas.getBoundingClientRect();
 		    if(!this.wait)
 		    {
-			this.draw(Math.round(e.clientX-bounding.left),Math.round(e.clientY-bounding.top),true,this.box);
+			this.draw(Math.round(e.clientX-this.bounding.left),Math.round(e.clientY-this.bounding.top),true,this.box);
 		    }
 		});
 	    
 	    this.canvas.addEventListener("mousedown", e=>
 		{
-			let bounding = this.canvas.getBoundingClientRect();
 		    if(!this.wait)
 		    {
-			this.boxx = Math.round(e.clientX - bounding.left);
-			this.boxy = Math.round(e.clientY - bounding.top);
+			this.boxx = Math.round(e.clientX - this.bounding.left);
+			this.boxy = Math.round(e.clientY - this.bounding.top);
 			this.draw(this.boxx,this.boxy,true,true);
 		    }
 		});
 	    
 	    this.canvas.addEventListener("mouseup", e =>
 		{
-			let bounding = this.canvas.getBoundingClientRect();
 		    if(!this.wait)
 		    {
 			this.axes=this.box=false;
 			let xpix, xxpix, ypix, yypix;
 			
-			let x = Math.round(e.clientX - bounding.left);
-			let y = Math.round(e.clientY - bounding.top);
+			let x = Math.round(e.clientX - this.bounding.left);
+			let y = Math.round(e.clientY - this.bounding.top);
 			
 			if(this.boxx>x)
 			{
@@ -675,6 +673,7 @@ function init(canvas_id)
     fract1.run();
     return fract1;
 }
+
 
 
 
