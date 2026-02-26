@@ -43,6 +43,14 @@
       a.invisible { text-decoration: underline; font: inherit; color: inherit; }
       a.invisible:hover { text-decoration: underline; color: blue; }
 
+	  a.arxiva { text-decoration: underline; font: inherit; color: inherit; }
+      a.arxiva:hover { text-decoration: underline; color: blue; }
+
+	  
+      a.papertitle { text-decoration: underline; font: inherit; color: inherit; font-style: italic; }
+      a.papertitle:hover { text-decoration: underline; font: inherit; color: blue; font-style: italic; }
+      
+
       li { text-align: justify; font-size: 1.3em; }
 
  	  hr { border: none; border-top: 1px solid black; margin: auto; margin-top: 25px; margin-bottom: 25px; width: 80%; }
