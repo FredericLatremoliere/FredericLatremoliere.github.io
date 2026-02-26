@@ -42,4 +42,5 @@
       a.invisible:hover { text-decoration: underline; color: blue; }
 
       li { text-align: justify; font-size: 1.3em; }
-      
+
+ 	  hr { border: none; border-top: 1px solid black; margin: auto; margin-top: 25px; margin-bottom: 25px; width: 80%; }
