@@ -10,8 +10,22 @@
 	  --serifFont: "Garamond", "Baskerville";
 	  --sansSerifFont: "Playfair display";
       }
-      
-      body {  font-family: var(--serifFont); background-image: linear-gradient(180deg, var(--lightBlue), var(--darkBlue)); background-attachment: fixed;}
+	
+	body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(180deg, var(--lightBlue), var(--darkBlue)); /* image HERE!!!!! */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: -1;
+}
+		
+      body {  font-family: var(--serifFont); }
 
       h1 { font-family: var(--serifFont); font-size: 3.3em; display: block; margin:auto;  padding: 0.5em; font-weight: 400; text-align: center;}
 
@@ -175,6 +189,7 @@
   </body>
   
 </html>
+
 
 
 
