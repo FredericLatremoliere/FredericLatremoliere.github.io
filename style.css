@@ -29,7 +29,7 @@
 
 	  h3 { font-family: var(--serifFont); font-size: 1.5em; display: block; margin: auto; font-weight: 400; text-align: center; font-style: italic; padding-top: 20px; padding-bottom: 20px; }
 
-      p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em;}
+      p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em; text-align: inter-word; text-wrap: pretty; hyphens: auto; }
       
       p.small { text-align: justify; hyphens: auto; text-wrap: pretty; text-align: inter-word; font-size:1em;}
 
