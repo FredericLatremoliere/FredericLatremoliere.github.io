@@ -31,7 +31,7 @@
 
       p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em;}
       
-      p.small { text-align: justify; font-size:1em;}
+      p.small { text-align: justify; hyphens: auto; text-wrap: pretty; text-align: inter-word; font-size:1em;}
 
       .nava { style="position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:2;" }
 
