@@ -29,9 +29,9 @@
 
 	  h3 { font-family: var(--serifFont); font-size: 1.5em; display: block; margin: auto; font-weight: 400; text-align: center; font-style: italic; padding-top: 20px; padding-bottom: 20px; }
 
-      p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em; text-align: inter-word; text-wrap: pretty; hyphens: auto; }
+      p.centered { text-align: justify; font-size: 1.3em; margin: auto; padding: 1em 0em; text-justify: inter-word; text-wrap: pretty; hyphens: auto; }
       
-      p.small { text-align: justify; hyphens: auto; text-wrap: pretty; text-align: inter-word; font-size:1em;}
+      p.small { text-align: justify; hyphens: auto; text-wrap: pretty; text-justify: inter-word; font-size:1em;}
 
       .nava { style="position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:2;" }
 
@@ -51,6 +51,6 @@
       a.papertitle:hover { text-decoration: underline; font: inherit; color: blue; font-style: italic; }
       
 
-      li { text-align: justify; font-size: 1.3em; }
+      li { text-align: justify; text-justify: inter-word; text-wrap: pretty; font-size: 1.3em; }
 
  	  hr { border: none; border-top: 1px solid black; margin: auto; margin-top: 25px; margin-bottom: 25px; width: 80%; }
