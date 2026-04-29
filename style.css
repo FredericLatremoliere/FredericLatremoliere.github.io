@@ -33,7 +33,7 @@
       
       p.small { text-align: justify; hyphens: auto; text-wrap: pretty; text-justify: inter-word; font-size:1em;}
 
-      .nava { style="position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:2;" }
+      .nava { position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:20;" }
 
       .nava a { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
       .nava a:hover { border-bottom: solid 1px black; color: black;}
