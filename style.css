@@ -35,8 +35,8 @@
 
       .nava { position: fixed; top: 0px; width:100%; background-color: var(--lightBlue);  z-index:20; }
 
-      .nava a { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
-      .nava a:hover { border-bottom: solid 1px black; color: black;}
+      a.nava { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
+      a.nava hover { border-bottom: solid 1px black; color: black;}
 
       .container { display: flex; align-items: stretch; flex-direction: row; }
 
