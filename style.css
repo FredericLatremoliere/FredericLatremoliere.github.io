@@ -48,11 +48,6 @@ html, body {
  font-family: var(--serifFont); 
 }
 
-/* Navigation Styling */
-.home-link {
-  border-bottom: solid 1px black;
-}
-
 /* The Main Layout Wrapper */
 .container {
   width: 100%;
@@ -78,6 +73,9 @@ html, body {
 
       a.nava { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
       a.nava:hover { border-bottom: solid 1px black; color: black;}
+	  a.home-link { border-bottom: solid 1px black; }
+
+
 
       .container { display: flex; align-items: stretch; flex-direction: row; }
 
