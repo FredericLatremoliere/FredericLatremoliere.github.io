@@ -20,6 +20,21 @@
 	background-size: cover;
 	z-index: -1;
 }
+
+a.skip-link {
+  position: absolute;
+  top: -100%; /* Hides the link above the viewport */
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  z-index: 100;
+}
+
+/* Brings the link into view only when a user tabs to it */
+a.skip-link:focus {
+  top: 0;
+}
       
       body {  font-family: var(--serifFont); }
 
