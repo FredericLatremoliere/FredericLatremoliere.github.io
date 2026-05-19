@@ -69,7 +69,7 @@ html, body {
       
       p.small { text-align: justify; hyphens: auto; text-wrap: pretty; text-justify: inter-word; font-size:1em;}
 
-      nav.nava { position: fixed; top: 0px; right: 5px; width:100%; background-color: var(--lightBlue);  z-index:20; }
+      nav.nava { position: fixed; top: 0px; padding: 10px; width:100%; background-color: var(--lightBlue);  z-index:20; }
 
       a.nava { padding: 0em 1em 0em 1em; font-size: 1.2em; color: black; border: none; text-decoration: none; }
       a.nava:hover { border-bottom: solid 1px black; color: black;}
