@@ -50,6 +50,7 @@ html, body {
 
 /* The Main Layout Wrapper */
 .container {
+  position: relative;
   width: 100%;
   height: 80vh;          /* Spans exactly 80% of screen viewport height */
   margin-top: 8vh;       /* Replaces position: relative top: 5% */
@@ -58,6 +59,7 @@ html, body {
 }
 
 .container-2 {
+	position: relative;
 	margin-top: 8hv; 
 	left: 0px;  
 	width: 100%; 
