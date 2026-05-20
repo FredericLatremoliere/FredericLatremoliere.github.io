@@ -15,6 +15,32 @@
 
     <script src="./fractal.js"></script>
 
+<style>
+
+			#fractal-pic {
+			position: relative;
+			flex: 35%;
+			}
+		
+			#main-content { 
+				position: relative;
+				top: 20px;
+				overflow-y: auto;
+				flex: 55%;
+				scrollbar-color: blue rgb(202,233,245);
+				height: 100%;
+			}
+		
+			@media (max-width: 768px) {	
+ 				#fractal-pic { 
+					flex: 15%; 
+					}
+ 				#main-content { flex-grow: 1; }
+			}
+
+		
+	</style>
+	  
   </head>
   
   <body onload="init('fractal');">
