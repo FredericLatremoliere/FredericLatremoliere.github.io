@@ -19,9 +19,18 @@
       a.arxiva:hover { text-decoration: underline; color: blue; }
 
       
-      li { font-size: 1.3em; padding: 1em 1em 1em 1em; }
+      li { 
+		  font-size: 1.3em; 
+		  padding: 1em 1em 1em 1em; 
+		  overflow-wrap: break-word;
+    	  word-wrap: break-word; /* Legacy support */
+          word-break: break-word; }
       
-  
+ 	.abstract {
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Legacy support */
+    word-break: break-word; 
+}
 	</style>
 	  
   </head>
