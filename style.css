@@ -75,6 +75,7 @@ html, body {
 		flex-direction: column-reverse;
 		margin: 10px;
 		margin-top: 15vh;
+		text-align: center;
 	}
 
 	.container-2 {
