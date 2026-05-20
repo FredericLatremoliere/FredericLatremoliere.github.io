@@ -48,8 +48,11 @@
 	}
 		
 	@media (max-width: 768px) {	
- 	#fractal-pic { flex: 15%; }
- 	#main-content { flex: 0 1 auto; }
+ 	#fractal-pic { 
+		flex-shrink: 0; 
+		height: 50px; 
+	}
+ 	#main-content { flex-grow: 1; }
 	}
 	
 	</style>
