@@ -57,8 +57,9 @@ html, body {
   height: 80vh;          
   margin-top: 8vh;       
   gap: 20px;             
+  align-items: stretch;
 }
-
+  
 .container-2 {
   display: grid; 
   grid-template-columns: 1fr 1fr; 
@@ -101,9 +102,6 @@ html, body {
       a.nava:hover { border-bottom: solid 1px black; color: black;}
 	  a.home-link { border-bottom: solid 1px black; }
 
-
-
-      .container { display: flex; align-items: stretch; flex-direction: row; }
 
       a.invisible { text-decoration: underline; font: inherit; color: inherit; }
       a.invisible:hover { text-decoration: underline; color: blue; }
