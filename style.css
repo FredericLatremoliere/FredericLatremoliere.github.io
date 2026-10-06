@@ -165,6 +165,8 @@ a.invisible, a.arxiva, a.papertitle {
   font: inherit;
   color: inherit;
   text-decoration-color: var(--gold);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.5px;
 }
 
 a.papertitle { font-style: italic; }
