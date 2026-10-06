@@ -140,7 +140,6 @@ nav.nava {
   padding: 10px;
   width: 100%;
   background: var(--darkBlue);
-  border-bottom: 1px solid var(--rule);
   z-index: 20;
 }
 
