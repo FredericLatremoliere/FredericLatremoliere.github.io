@@ -25,7 +25,7 @@ body {
   position: relative;
   isolation: isolate;
   color: var(--ivory);
-  line-height: 1.55;
+  line-height: 1.25;
 }
 
 body::before {
