@@ -5,7 +5,7 @@
   --gold: #c6aa70;
   --goldBright: #e5c991;
   --rule: #ab9567;
-  --serifFont: "Garamond", "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --serifFont: Georgia, "Palatino Linotype", "Book Antiqua", serif; /* "Garamond", "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif; */
   --sansSerifFont: "Segoe UI", Arial, sans-serif;
   color-scheme: dark;
 }
