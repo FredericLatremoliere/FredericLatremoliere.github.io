@@ -6,7 +6,7 @@
   --goldBright: #e5c991;
   --rule: #ab9567;
   --serifFont: "Garamond", "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  --sansSerifFont: "Segoe UI", Arial, sans-serif;
+  --sansSerifFont: 'Optima', 'Segoe UI', 'Candara', sans-serif;
   color-scheme: dark;
 }
 
@@ -140,6 +140,7 @@ nav.nava {
   padding: 10px;
   width: 100%;
   background: var(--darkBlue);
+  font-family: var(--sansSerifFont);
   z-index: 20;
 }
 
