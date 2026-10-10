@@ -209,9 +209,8 @@ hr {
     margin: 10px;
     margin-top: 15vh;
   }
-}
 
-
+  
 nav.nava {
   margin: default;
   text-align: left;
@@ -221,3 +220,8 @@ nav.nava {
   display: block;
   margin:auto;
 }
+
+  
+}
+
+
