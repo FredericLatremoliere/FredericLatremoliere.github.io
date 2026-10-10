@@ -209,6 +209,7 @@ hr {
   }
 }
 
-#fractal {
+#fractal, #fractal2 {
   display: block;
+  margin:auto;
 }
