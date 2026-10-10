@@ -143,6 +143,7 @@ nav.nava {
   font-family: var(--sansSerifFont);
   z-index: 20;
   margin: auto;
+  text-align: center;
 }
 
 a.nava {
@@ -213,6 +214,7 @@ hr {
 
 nav.nava {
   margin: default;
+  text-align: left;
 }
 
 #fractal, #fractal2 {
