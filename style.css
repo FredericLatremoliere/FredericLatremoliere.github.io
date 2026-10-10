@@ -5,7 +5,7 @@
   --gold: #c6aa70;
   --goldBright: #e5c991;
   --rule: #ab9567;
-  --serifFont: "Garamond", "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --serifFont: "Garamond", "Baskerville", "Palatino Linotype", "Book Antiqua", "Georgia", serif;
   --sansSerifFont: 'Optima', 'Segoe UI', 'Candara', sans-serif;
   color-scheme: dark;
 }
@@ -197,7 +197,7 @@ hr {
     display: flex;
     flex-direction: column-reverse;
     margin: 10px;
-    margin-top: 5vh;
+    margin-top: 15vh;
     text-align: center;
   }
 
