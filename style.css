@@ -196,7 +196,7 @@ hr {
   .container {
     display: flex;
     flex-direction: column-reverse;
-    margin: 10px;
+    margin: auto;
     margin-top: 15vh;
     text-align: center;
   }
