@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Formatted in Canvas with ChatGPT help -->
+    <meta charset="UTF-8">
+    <title>MATH 1951 - Calculus I</title>
+</head>
+
+
+<body>
+
+  <div class="phpally-ignore">
+    <h2 style="font-family: Arial,Helvetica,sans-serif; font-size: 32px; line-height: 1.15; color: #17324d; margin: 8px 0 5px 0; text-align: center;">WELCOME TO CALCULUS III</h2>
+    <h3 style="font-family: Arial,Helvetica,sans-serif; font-size: 17px; line-height: 1.3; color: #1f4e79; margin: 0 0 20px 0; text-align: center;">MATH 1953 &bull; Section 1 &bull; Autumn Quarter 2026</h3>
+    <p>&nbsp;</p>
+    <table style="border-collapse: collapse; width: 100%; border-color: #b8c7d1; border-style: solid;" border="1px">
+        <caption><span style="color: #2b7abc;"><em>Class Schedule</em></span></caption>
+        <colgroup>
+            <col style="width: 33%;" />
+            <col style="width: 33%;" />
+            <col style="width: 33%;" />
+        </colgroup>
+        <thead>
+            <tr class="header">
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Course meetings</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Friday TA session</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Final examination</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Tuesday &amp; Thursday<br />10:00&ndash;11:50 a.m.<br />CC 150<br />Sept. 8&ndash;Nov. 16</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Friday<br />11:00&ndash;11:50 a.m.<br />Olin 205</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">
+                    <p>Tuesday, Nov. 17<br />10:00&ndash;11:50 a.m.CC 150</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <table style="border-collapse: collapse; width: 100%; border-color: #b8c7d1; border-style: solid;" border="1px">
+        <caption><span style="color: #2b7abc;"><em>Instructor Information</em></span></caption>
+        <colgroup>
+            <col style="width: 50%;" />
+            <col style="width: 50%;" />
+        </colgroup>
+        <thead>
+            <tr class="header">
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="row"><strong>Instructor</strong></th>
+                <td style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;"><strong>Professor Fr&eacute;d&eacute;ric Latr&eacute;moli&egrave;re</strong></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <th style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;" scope="row">Email</th>
+                <td style="color: #7f6000; text-align: left; vertical-align: top; padding: 8px 10px; background: #ffffff; border: 1px solid #b8c7d1;"><a class="inline_disabled" href="mailto:frederic@math.du.edu" target="_blank" rel="noopener"><span style="color: #000000; background-color: #ffffff;">frederic@math.du.edu</span></a></td>
+            </tr>
+            <tr>
+                <th style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;" scope="row">Homepage</th>
+                <td style="color: #7f6000; text-align: left; vertical-align: top; padding: 8px 10px; background: #ffffff; border: 1px solid #b8c7d1;"><a class="inline_disabled phpally-ignore" href="https://fredericlatremoliere.com/" target="_blank" rel="noopener"><span style="color: #000000; background-color: #ffffff;">https://fredericlatremoliere.com/</span></a></td>
+            </tr>
+            <tr class="even">
+                <th style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;" scope="row">Office</th>
+                <td style="color: #7f6000; text-align: left; vertical-align: top; padding: 8px 10px; background: #ffffff; border: 1px solid #b8c7d1;"><span style="color: #000000; background-color: #ffffff;">CMK 206</span></td>
+            </tr>
+            <tr class="odd">
+                <th style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;" scope="row">Office hours</th>
+                <td style="color: #7f6000; text-align: left; vertical-align: top; padding: 8px 10px; background: #ffffff; border: 1px solid #b8c7d1;"><span style="color: #000000;">Wed 4-6pm, or by appointment</span></td>
+            </tr>
+            <tr class="even">
+                <th style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;" scope="row">Teaching Assistant</th>
+                <td style="color: #7f6000; text-align: left; vertical-align: top; padding: 8px 10px; background: #ffffff; border: 1px solid #b8c7d1;"><span style="color: #000000;">Christian Naess (OH: Tue 2-4pm CMK 305)</span></td>
+            </tr>
+            <tr class="odd">
+                <th style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;" scope="row">Course platform</th>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Canvas</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 id="welcome" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">Welcome</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Whether prompted by the necessity for survival, or, as we would prefer, motivated by curiosity and a search for meaning, humanity has sought to make sense of nature and to create models of natural phenomena amenable to our minds. Thus our contribution to nature is in enabling its introspection. The conception of predictive models of natural phenomena is the subject of natural science. The applications of their predictive powers are the matter of technology and medicine. The world in which these models actually exist, however, is the realm of mathematics. To quote one of the giants of this scientific adventure:</p>
+    <table style="border-collapse: collapse; width: 100%; background-color: #f5f7fa; border-color: #b8c7d1 #b8c7d1 #b8c7d1 #1f4e79; border-style: solid;" border="1px" cellpadding="14px 16px">
+        <caption><span style="color: #2b7abc; background-color: #ffffff;"><em>A quote of Galileo</em></span></caption>
+        <colgroup>
+            <col style="width: 100%;" />
+        </colgroup>
+        <thead>
+            <tr class="header">
+                <th style="background: #f5f7fa; color: #17324d; text-align: left; vertical-align: middle; padding: 14px 16px; border: 1px solid #b8c7d1;" scope="row">
+                    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 14px; line-height: 1.4; color: #222222; margin: 0 0 6px 0;"><em>&ldquo;Philosophy is written in this grand book, the universe, which stands continually open to our gaze. But the book cannot be understood unless one first learns to comprehend the language and read the letters in which it is composed. It is written in the language of mathematics, and its characters are triangles, circles and other geometric figures without which it is humanly impossible to understand a single word of it; without these, one wanders about in a dark labyrinth.&rdquo;</em></p>
+                    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 14px; line-height: 1.4; color: #222222; margin: 0 0 6px 0;">&mdash;Galileo, Il Saggiatore (1623), translated by Stillman Drake (1957)</p>
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">&nbsp;</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The search for a proper description of these geometric figures and their motion culminated in the development of calculus in the seventeenth century CE, attributed independently to Isaac Newton (1642&ndash;1727) and Gottfried Wilhelm Leibniz (1646&ndash;1716), and building on millennia of expansive and deep mathematical research. It took more than an additional century for mathematicians to formalize it and obtain a clear vision and understanding of its concepts and ideas. In fact, the modern formalization of mathematics itself&mdash;a very important move toward Platonic pure forms&mdash;was a direct descendant of calculus, born from the many challenges posed by its brilliantly intuitive, yet originally unfinished, foundation.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Historically, the early pioneers of calculus operated on intuition, treating certain quantities as &ldquo;infinitesimally small&rdquo; without a rigorous way to define what that actually meant, leading to various paradoxes and difficulties. It took over a century of rigorous mathematical refinement to establish the solid logical foundation we use today. The core concept of calculus is the notion of limit, formalized properly in the nineteenth century by mathematicians such as Augustin-Louis Cauchy (1789&ndash;1857), Bernard Bolzano (1781&ndash;1848), and Karl Weierstrass (1815&ndash;1897), among many. Calculus is now a part of the field of analysis, which is by far the most applied area of mathematics to the natural sciences, directly or through some of its descendants, such as probability, statistics, differential geometry, and numerical analysis.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">This is the subject to which this course offers an introduction. Our focus will be on the fundamental concepts of sequences, series, Taylor polynomials, and their applications. While we must admit certain foundational results, which are the topics of more advanced courses such as an introduction to real analysis, we will still undertake a deep journey into the subject, intended to convey a sense of its elegance and depth while cultivating the skills necessary to move forward with the study of both mathematics and its applications.<br /><br /><em>Note: the class image was generated using ChatGPT 5.6 Sol from a simple picture of the Sierpinsky's gasket, an interesting fractal your instructor wrote about.</em></p>
+    <h3 id="class-philosophy" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">1. Class Philosophy</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; line-height: 1.5; color: #1f4e79; margin: 8px 0 16px 0; text-align: center;"><em><strong>The narrative of mathematics is written in theorems and proofs.</strong></em></p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">&nbsp;</p>
+    <p>Mathematics tells a story of ideas, where the narrative is driven by logical connections between abstract patterns. It enables us to describe and employ abstract ideas by following precisely where deduction can lead us. The practitioner of mathematics uses their intuition and understanding in a creative manner to discover new theorems about new concepts. Truth in mathematics is established via formal proofs, which use deduction like a physicist exploits causality. A formal proof is a sort of harmony of ideas, where somehow other theorems and concepts come together in a strongly coherent argument. Where a biologist or a physicist uses an experiment as a tool to validate or disprove a hypothesis, mathematicians use formal proofs to confirm whether their theorems are true or not.&nbsp;</p>
+    <p>Mathematics may also be seen as an abstract music of the mind. Like music, it has its own language to record the creation of a musician to be shared with other musicians. Yet, the written language of music communicates what is needed to produce the same harmonies, timbres, pitches in the expected sequence and rhythm, playing music involves a lot more than reading the sheet music. The sound produced by a talented musician transcends the written score. In mathematics, we also use a very formal language to communicate our ideas and display our proofs to other mathematicians. In particular for proofs, the language is strict, to ensure correctness. Nonetheless, as with music, it is the collection of ideas, patterns, connections, logical relations, and the entire landscape of mathematics which is the true content of our field. Notation comes alive and meaningful through interpretation and practice.</p>
+    <p>Watching a talented musician play a beautiful piece does not make one a musician. The same applies to mathematics. Learning mathematics is a very active process which requires trying, experimenting, repeating, and challenging one's work, until understanding emerges. You must train your mind as the instrument of mathematics, and to create your own music, for instance solving a question, you will be led by your comprehension of the ideas, and you will express them carefully in the common language of the field. In particular, proofs are not a secondary component of this exploration and creative process: they are at its core. This sought after understanding emerges from learning the connections and the pictures drawn by the proofs, which are precisely where all these connections appear.</p>
+    <p>This overall perspective drives our teaching method. We present the subject as a narrative written in definitions, theorems and their proofs. While we may, at times, need to accept a theorem as fact, delaying its proof to a later course, our purpose is to select a collection of proofs which illustrate the core concepts of the present course. The story emerges by revealing connections between the actors. To accommodate the need for feedback and clarification, our course relies heavily on lectures where the audience is strongly encouraged to ask questions. As a mathematician, it is my role to provide a correct argument, illustrate with a proper example, or a counter example, a particular concept, and to be able to answer your questions, offering alternative paths when possible. Indeed, as students, you are not here to merely receive a dogmatic set of disconnected facts, but instead, you are here to be taught a coherent body of knowledge you can navigate logically based upon well stated assumptions. A theorem is true because we prove it so, not because we believe so, or we are told so. In fact, this very mindset is at the core of what I hope to help you learn.</p>
+    <p>We do not reject incorrect statements or proofs based upon an authoritative view, but by providing counterexamples, in the hope to correct an incorrect intuition. We learn that only proven claims, either in the process of solving a problem or by appealing to results seen in lectures, are admissible and considered true. In this course, points toward the final score are earned only for correct mathematical statements which contribute, or could reasonably contribute, to a correct solution of the problem.&nbsp;</p>
+    <p>Students will thus develop their skills by focusing on understanding the material. We expect that definitions and theorems will be learned from one lecture to the next with the necessary rigor. In a calculus course, proofs are to be read and understood, but will not be included in the final assessment, which will instead focus on certain examples and applications. Once the student knows the definitions and theorems, they can attempt to reproduce examples seen in class. They should try to do so by themselves, without recourse to their notes, for a long time. Only after a very diligent effort has been made and failed, should the notes be consulted again. The student should try again later to reproduce the example, after enough time has elapsed since the last consultation of notes that short term memory is no longer of help. This process is akin to repeating musical exercises until they become natural and some of their more subtle aspects become apparent. At this point, the student can then attempt the exercises. Again, sometimes, maybe often, exercises may raise a challenge or a question: this is a positive development. Learning, in particular, relies on first encountering friction, difficulties, which in turn require the mind to work and relate acquired knowledge through creative yet logical skills to build a new solution.&nbsp;</p>
+    <p>The entire reason that a mathematician teaches this course is that, for the time of the lecture at least, you have direct access to someone who has demonstrated some abilities in the field. It is thus very important that you take advantage of this opportunity. You must carefully listen to what is said, take excellent notes for later review, and ask questions at the first confusion. In exchange for your efforts, you will progress on your journey in discovering the world of mathematics and its myriad of applications.</p>
+    <h3 id="prerequisites" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">2. Prerequisites</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The official prerequisite is MATH 1952 or an equivalent course (Calculus II). Students should enter with solid proficiency in limits, derivation, and integration as covered in standard calculus classes, including computations of derivatives and integral, the Mean Value Theorem and the Fundamental Theorem of Calculus. Students who have not yet mastered these topics should consult the instructor or their academic advisor promptly about appropriate preparation.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">To do well in this course, you will also need intellectual curiosity, a serious interest in the subject, a strong work ethic, and a willingness to be challenged. This course is designed for students who want to gain a conceptual understanding of calculus from which practical skills can emerge.</p>
+    <h2 id="catalogue-description" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">3. Catalogue Description</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The University of Denver catalogue gives the following description:</p>
+    <p><em>Integration of functions of one variable, infinite sequences and series, polar coordinates, parametric equations. Prerequisite:&nbsp;<a title="MATH&nbsp;1952" href="https://bulletin.du.edu/search/?P=MATH%201952">MATH&nbsp;1952</a>&nbsp;OR&nbsp;<a title="MATH&nbsp;1962" href="https://bulletin.du.edu/search/?P=MATH%201962">MATH&nbsp;1962</a>.</em></p>
+    <h3 id="learning-outcomes" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">4. Learning Outcomes</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">By the end of the course, a successful student should be able to:</p>
+    <ul style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.45; color: #222222; margin: 0 0 14px 26px; padding: 0;">
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">use definitions, axioms, and established theorems to construct elementary mathematical arguments;</p>
+        </li>
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">compute limits of sequences using the principal rules developed in the course;</p>
+        </li>
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">prove convergence or divergence of series using the various tests developed in the course;</p>
+        </li>
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">use Taylor polynomials and Taylor-Young theorem to compute various limits;</p>
+        </li>
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Basic idea of parametric and polar curve equations in the plane; and</p>
+        </li>
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">explain how the main concepts and techniques of the course fit together.</p>
+        </li>
+    </ul>
+    <h2 id="topics-and-tentative-course-calendar" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">5. Topics and Tentative Course Calendar</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The calendar below describes the intended progression of the course. Adjustments may be made to support the pace of the class; any changes will be announced in lecture and posted on Canvas.</p>
+    <table style="border-collapse: collapse; width: 100%; border-color: #b8c7d1; border-style: solid;" border="1px">
+        <caption><span style="color: #2b7abc;"><em>Tentative Schedule</em></span></caption>
+        <colgroup>
+            <col style="width: 33%;" />
+            <col style="width: 33%;" />
+            <col style="width: 33%;" />
+        </colgroup>
+        <thead>
+            <tr class="header">
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Weeks</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Dates</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Topics</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">1-2</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Sept. 8&ndash;18</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">The Natural number, reasoning by induction, sequences, limits of sequences: &epsilon;&ndash;&delta; definition, algebra of limits, squeeze theorem, relation to function continuity.</td>
+            </tr>
+            <tr class="even">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">3-4</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Sept. 22-29</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">L'Hospital rule, Taylor-Young Theorem, Taylor polynomials, Taylor with integral remainder, application to limit of functions and sequences.&nbsp;</td>
+            </tr>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">5</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Sept. 29&ndash;Oct. 2</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">
+                    <p>Series definition, convergence, geometric series, telescopic series, divergence test.</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">6</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Oct. 2-16</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">
+                    <p>Montone convergence theorem, series of positive terms, integral comparison, direct comparison, limit comparison.</p>
+                </td>
+            </tr>
+            <tr class="even">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">7</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Oct. 20&ndash;22</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Absolute convergence, alternate sign test.</td>
+            </tr>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">8</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Oct. 27&ndash;29</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Power series, ratio test, root test, radius of convergence, continuity, differentiability and integrability term by term.</td>
+            </tr>
+            <tr class="even">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">9&ndash;10</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Nov. 3&ndash;12</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Curves in the plane: parametric equations, polar coordinates and equations, tangent, (curvature).</td>
+            </tr>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Finals</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Nov. 17</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">Comprehensive final examination</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="important-dates" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">6. Important Dates</h2>
+    <table style="border-collapse: collapse; width: 100%; height: 324.292px; border-color: #b8c7d1; border-style: solid;" border="1px">
+        <caption><span style="color: #2b7abc;"><em>Important dates</em></span></caption>
+        <colgroup>
+            <col style="width: 50%;" />
+            <col style="width: 50%;" />
+        </colgroup>
+        <thead>
+            <tr class="header" style="height: 37.5625px;">
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; height: 37.5625px; border: 1px solid #b8c7d1;" scope="col"><strong>Date</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; height: 37.5625px; border: 1px solid #b8c7d1;" scope="col"><strong>Event</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd" style="height: 35.5625px;">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Tuesday, Sept. 8</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">First class meeting</td>
+            </tr>
+            <tr class="even" style="height: 35.5625px;">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Thursday, Oct. 22</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Midterm examination</td>
+            </tr>
+            <tr class="odd" style="height: 35.5625px;">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Thursday, Oct. 29</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Optional makeup midterm</td>
+            </tr>
+            <tr class="even" style="height: 54.4583px;">
+                <td style="color: #7f6000; padding: 8px 10px; background: #ffffff; text-align: left; vertical-align: top; height: 54.4583px; border: 1px solid #b8c7d1;"><span style="color: #000000;">Friday, Oct. 30</span></td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 54.4583px; border: 1px solid #b8c7d1;">
+                    <p>Makeup-midterm grades published.</p>
+                </td>
+            </tr>
+            <tr class="odd" style="height: 35.5625px;">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Monday, Nov. 2</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">University deadline: last day to add or drop Autumn Quarter 2026 classes</td>
+            </tr>
+            <tr class="even" style="height: 54.4583px;">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 54.4583px; border: 1px solid #b8c7d1;">Monday, Nov. 16</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 54.4583px; border: 1px solid #b8c7d1;">Last day of Autumn Quarter classes (the final scheduled MATH 1953&ndash;1 lecture is Thursday, Nov. 12)</td>
+            </tr>
+            <tr class="odd" style="height: 35.5625px;">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Tuesday, Nov. 17, 10:00&ndash;11:50 a.m.</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; height: 35.5625px; border: 1px solid #b8c7d1;">Final examination, Olin 205</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><em>The November 2 deadline is taken from the University of Denver&rsquo;s 2026&ndash;2027 Registration and Billing Dates for Traditional Programs. Students remain responsible for consulting the Registrar for the procedure and any consequences associated with dropping a course.</em></p>
+    <h2 id="resources" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">7. Resources</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Many excellent resources for calculus are available online, and you are welcome to use them for study. The department has also adopted the <a class="inline_disabled" href="https://openstax.org/details/books/calculus-volume-2" target="_blank" rel="noopener">open-source calculus textbook published by OpenStax</a>. This course is designed primarily around the lectures, during which all material required for the course will be presented. Canvas will contain announcements and essential course materials.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Two sets of instructor notes are provided as supplementary resources:</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="c3.pdf" href="/users/3887/files/18599238?location=course_syllabus_213000&amp;verifier=302f770b-a8a5-443f-9c75-687b7ce9e4ab&amp;wrap=1" target="_blank" rel="noopener"><strong>Calculus III Instructor Notes.</strong></a> These notes present the theoretical content of the course, including most proofs discussed in class as well as some additional results. Examples, exercises, and mathematical discussions will principally take place during lectures. The notes serve both as a reference and as a more detailed complement to the lectures.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">We also provide several supplemental resources in the forms of instructor notes for previous courses listed as prerequisite for calculus III. Once more, these notes are designed as a reference manual and are more detailed and in depth than what is expected, but provide a coherent framework for calculus.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="c1.pdf" href="/users/3887/files/18599236?location=course_syllabus_213000&amp;verifier=eae562cb-f6ba-4ffb-a9b2-d765ca385efd&amp;wrap=1" target="_blank" rel="noopener">Calculus I Instructor Notes.</a></p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="calculus2notes-ua2.pdf" href="/users/3887/files/18599237?location=course_syllabus_213000&amp;verifier=3835f38d-cb3e-4135-8b9c-085071bbc582&amp;wrap=1" target="_blank" rel="noopener">Calculus II instructor Notes</a>.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="distilled-v1.pdf" href="/users/3887/files/18599234?location=course_syllabus_213000&amp;verifier=6329c739-2d2c-4ab9-8800-fc0a8bb712a2&amp;wrap=1" target="_blank" rel="noopener">Distilled Foundation of Calculus notes.</a> This brief notes are a synopsis of the foundation of calculus notes, containing main formulas and notations used in calculus. They may be used as a quick reference guide.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong></strong><a class="instructure_file_link instructure_scribd_file inline_disabled" title="calc-foundation.pdf" href="/users/3887/files/18599235?location=course_syllabus_213000&amp;verifier=f844b4fc-70dc-41a5-926e-acc04c00c15e&amp;wrap=1" target="_blank" rel="noopener"><em>Foundations of Calculus Instructor Notes</em></a><strong><em>.</em></strong> These notes describe the mathematical foundation upon which the course is built. In particular, they state our formal framework using nine fundamental axioms concerning sets, functions, and real numbers. They also review elements of plane geometry and trigonometry, together with other important families of functions, including quadratic, exponential, and logarithmic functions. These notes can be used as a reference and could serve for a as-of-yet non-existence serious precalculus course; they contain much more material than our class will need but offer an appropriate foundation for calculus. Students can consult them as a references by accessing only what they need, and may browse them to see how the story of calculus is rooted in a formal theory of sets, functions and real numbers.</p>
+    <h2 id="course-format-and-expectations" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">8. Course Format and Expectations</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">This course relies on active engagement to master mathematical concepts.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Lectures and participation.</strong> Regular attendance and diligent note-taking are expected. Lectures are interactive, and you are encouraged to seek clarification whenever a concept is unclear.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Homework.</strong> Assignments are provided for practice rather than assessment. Homework is not collected or graded, but consistent completion is essential for success.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Tuesday problem-solving.</strong> A portion of Tuesday&rsquo;s meeting will be reserved, when appropriate, for questions arising from the week&rsquo;s work and for additional practice.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Friday TA session.</strong> The Teaching Assistant will lead a weekly practice session on Fridays from 11:00 to 11:50 a.m. in Olin 205.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Exam preparation.</strong> You should be able to reconstruct the examples developed in lecture independently. Use lectures, office hours, and the Friday TA session to identify and resolve specific conceptual or technical difficulties.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Canvas.</strong> Course announcements, schedule changes, and essential materials will be posted on Canvas. Students are responsible for checking Canvas regularly.</p>
+    <h2 id="assessment-and-grading" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">9. Assessment and Grading</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The course grade is based entirely on in-class examinations. The grading rule is designed to preserve the importance of the midterm while providing a meaningful opportunity to demonstrate improvement.</p>
+    <h3 id="assessment-components" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Assessment Components</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Midterm examination.</strong> A mandatory assessment covering approximately the first half of the course, administered Thursday, October 22.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Optional makeup midterm.</strong> A second assessment of the same material, administered Thursday, October 29. A student may take it after taking the original midterm, or after missing the original midterm for a documented reason accepted under the missed-examination policy below. When both examinations are taken, only the higher score is used.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Final examination.</strong> A comprehensive examination administered Tuesday, November 17, from 10:00 to 11:50 a.m. in CC 150.</p>
+    <h3 id="examination-conditions" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Examination Conditions</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">All examinations are closed-note and closed-book. Only examination paper supplied by the instructor, pens or pencils, and erasers are permitted. Calculators, phones, computers, smart watches, books, notes, and other aids are prohibited unless specifically authorized as an approved accommodation. Students may not communicate with one another or view another student&rsquo;s work during the examination and must observe the proctor&rsquo;s announced start and end times.</p>
+    <h3 id="final-score-calculation" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Final Score Calculation</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Let M denote the mid-quarter score:</p>
+    <ul style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.45; color: #222222; margin: 0 0 14px 26px; padding: 0;">
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">If both the midterm and optional makeup midterm are taken, M is the larger of the two scores.</p>
+        </li>
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">If the original midterm is missed for a documented reason accepted under the policy below and the optional makeup is taken, M is the makeup-midterm score.</p>
+        </li>
+        <li style="margin: 0 0 5px 0; padding-left: 3px;">
+            <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Otherwise, M is the original midterm score; an unexcused missed midterm is recorded as zero.</p>
+        </li>
+    </ul>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Let F denote the final-examination score, and let S denote the final course score.</p>
+    <table style="border-collapse: collapse; width: 100%; background-color: #eaf2f8; border-color: #1f4e79; border-style: solid;" border="1px" cellpadding="14px">
+        <caption><span style="color: #2b7abc; background-color: #ffffff;"><em>Grade computation formula</em></span></caption>
+        <colgroup>
+            <col style="width: 100%;" />
+        </colgroup>
+        <thead>
+            <tr class="header">
+                <th style="background: #eaf2f8; color: #17324d; text-align: center; vertical-align: middle; padding: 14px; font-size: 18px; border: 1px solid #b8c7d1;" scope="row">
+                    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 14px; line-height: 1.4; color: #222222; margin: 0 0 6px 0;"><strong>S = &frac12;(F + M) + &frac14; max{F &minus; M, 0}</strong></p>
+                    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 14px; line-height: 1.4; color: #222222; margin: 0 0 6px 0;"><strong>Equivalently: S = max{(F + M)/2, (3F + M)/4}.</strong></p>
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">This policy rewards improvement on the final examination while ensuring that the midterm remains an important part of the course.</p>
+    <h3 id="grading-scale" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Grading Scale</h3>
+    <table style="border-collapse: collapse; width: 100%; border-color: #b8c7d1; border-style: solid;" border="1px">
+        <caption><span style="color: #2b7abc;"><em>Score to Letter grade correspondence</em></span></caption>
+        <colgroup>
+            <col style="width: 25%;" />
+            <col style="width: 25%;" />
+            <col style="width: 25%;" />
+            <col style="width: 25%;" />
+        </colgroup>
+        <thead>
+            <tr class="header">
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Course score S</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Letter grade</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Course score S</strong></th>
+                <th style="background: #eaf2f8; color: #17324d; text-align: left; vertical-align: middle; padding: 9px 10px; border: 1px solid #b8c7d1;" scope="col"><strong>Letter grade</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[85, 100]</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">A</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[67, 70)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">C+</td>
+            </tr>
+            <tr class="even">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[80, 85)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">A&minus;</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[63, 67)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">C</td>
+            </tr>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[77, 80)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">B+</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[60, 63)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">C&minus;</td>
+            </tr>
+            <tr class="even">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[73, 77)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">B</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[57, 60)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">D+</td>
+            </tr>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[70, 73)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">B&minus;</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[53, 57)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">D</td>
+            </tr>
+            <tr class="even">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;"></td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;"></td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[50, 53)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">D&minus;</td>
+            </tr>
+            <tr class="odd">
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;"></td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;"></td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">[0, 50)</td>
+                <td style="color: #222222; text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid #b8c7d1;">F</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 id="missed-examinations-and-the-optional-makeup" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Missed Examinations and the Optional Makeup</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Optional status.</strong> The makeup midterm is optional. Because M is the maximum of the two midterm scores when both are taken, taking the makeup cannot lower M.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Eligibility.</strong> A student is eligible to take the optional makeup after taking the original midterm, or after missing the original midterm for an accepted documented reason. Students who miss the original midterm should contact the instructor as soon as reasonably possible and ordinarily before the makeup date. Documentation should be submitted through the appropriate University process whenever one exists; students should not send private medical details directly to the instructor.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Accepted absences.</strong> University-approved disability or religious accommodations, official University activities, and documented emergencies or serious illness will be handled in accordance with University policy. Other circumstances will be considered under the applicable University procedures.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>No additional makeup.</strong> Except where an approved accommodation or University policy requires otherwise, no alternate date or additional makeup will be offered for the optional makeup midterm.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Missing both midterms.</strong> If M = 0, then S cannot exceed 75; therefore, the highest possible course grade is B.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;"><strong>Missing the final.</strong> If F = 0, then S cannot exceed 50; therefore, the highest possible course grade is D&minus;.</p>
+    <h3 id="academic-integrity-during-examinations" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Academic Integrity During Examinations</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The use of an unauthorized aid, unauthorized communication, viewing another student&rsquo;s work, or permitting another student to view one&rsquo;s work is prohibited. Suspected violations will be addressed under the University of Denver Honor Code and applicable academic-integrity procedures. A violation established through the applicable process will result in a grade of F on the examination and may have additional consequences under University policy.</p>
+    <h2 id="attendance-absences-and-course-continuity" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">10. Attendance, Absences, and Course Continuity</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Attendance and participation are important for mastery of the course material. Students are expected to attend regularly and remain responsible for material and announcements from any class they miss. Attendance itself is not included in the numerical course grade.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Students with an approved Adjusted Attendance accommodation should contact the instructor to discuss how the accommodation will operate in relation to the learning goals and examinations of this course. Students anticipating absences for religious observances, official University activities, or other approved reasons should follow the relevant University procedure and communicate as early as possible.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">If campus closure or an unexpected instructor absence requires a change in delivery, instructions will be communicated through Canvas. Students should familiarize themselves with the Canvas course at the beginning of the term.</p>
+    <h2 id="about-your-instructor" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">11. About Your Instructor</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">I am a tenured, full professor of Mathematics at the University of Denver. I have a Ph.D. in mathematics from the University of California, Berkeley, as well as a Masters degree in Statistics from U.C. Berkeley, a degree of Statisticien-Economiste / Ingenieur Statisticien (Master equivalent) from ENSAE Paris (Ecole Nationale de Statististique et de l'Aministration Economique), a member Grande Ecole of the ParisTech institute, and a Maitrise de Mathematique et Applications Fondamentales from the University of Pierre et Marie Curie, Paris 6.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">My research specialty is noncommutative metric geometry, a field at the intersection of metric geometry, differential geometry, quantum geometry, quantum algebras, functional analysis and mathematical physics. My principal contribution is the discovery and study of distances between quantum metric spaces, motivated by the Gromov-Hausdorff distance. Thus I am a functional analyst, which is a far reaching discipline of mathematics whose roots lay in calculus. I currently have more than fifty papers published in peer reviewed international journals in mathematics, all publically accessible on the ArXiv preprint site. Mathematics is my passion.<br /><br />My teaching is heavily influenced by my international education and my passion and knowledge of mathematics. As a researcher in analysis, I have gained a deep understanding of the subject, which I now enriched with my own discoveries, and I have developed a perspective on the field and a particular intuition about its concepts and ideas. My purpose is to present the material with rigor, context, and with respect for the intelligence of my students. I love to present mathematics while preserving its elegance, as I know that what matters most in teaching mathematics is to awake students to the incredible world of ideas of mathematics, as a form of music for the mind.</p>
+    <h2 id="appendix-university-policies-and-support" style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; line-height: 1.25; color: #1f4e79; margin: 30px 0 12px 0; border-bottom: 1px solid #d6e0e6; padding-bottom: 4px;">Appendix: University Policies and Support</h2>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The following University language and links were current when this syllabus was prepared. Students should consult the linked University offices for the most current procedures.</p>
+    <h3 id="discrimination-harassment-and-gender-based-violence-title-ix" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Discrimination, Harassment, and Gender-Based Violence (Title IX)</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Discrimination, harassment, and gender-based violence can happen to anyone regardless of race, class, age, appearance, gender identity, or sexual orientation. The University of Denver is committed to providing an environment free of discrimination on the basis of sex (gender), including sexual misconduct, sexual assault, relationship violence, and stalking, and other protected classes, such as race, color, national origin, age, and disability.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">The Office of Equal Opportunity &amp; Title IX (EOIX) is responsible for responding to and investigating reports and complaints of discrimination, harassment, and gender-based violence. In addition, all non-confidential University employees are considered &ldquo;responsible employees&rdquo; and required to report such incidents to EOIX. For more information, visit https://www.du.edu/equalopportunity/.</p>
+    <h3 id="students-with-disabilities-or-medical-needs" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Students with Disabilities or Medical Needs</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">Student Disability Services (SDS) is committed to providing equitable opportunities to all students in full compliance with the Americans with Disabilities Act (ADA) of 1990, as amended, the Rehabilitation Act of 1973, and other applicable laws. SDS helps facilitate student participation by approving and providing accommodations at no extra cost for any student who has a documented disability.</p>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">SDS supports a range of potentially helpful accommodations. To learn more or begin the process, contact SDS at 303-871-7432 or sds@du.edu, or visit the office in Driscoll Center South, Garden Level, Suite 22, Monday&ndash;Friday, 8:00 a.m.&ndash;4:30 p.m. Consult the current SDS website for application instructions and office information.</p>
+    <h3 id="religious-accommodations" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Religious Accommodations</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">As part of its commitment to diversity and Inclusive Excellence, the University provides reasonable accommodations for students&rsquo; sincerely held religious beliefs or practices unless the University determines that such an accommodation would fundamentally alter the curriculum or academic program. Students should examine the course schedule for potential conflicts and submit the Religious Accommodation Request webform. Information about the process is available through Spiritual Life at DU: https://studentaffairs.du.edu/spiritual-life/religious-accommodations.</p>
+    <h3 id="honor-code-and-academic-integrity" style="font-family: Arial,Helvetica,sans-serif; font-size: 19px; line-height: 1.3; color: #1f4e79; margin: 24px 0 9px 0;">Honor Code and Academic Integrity</h3>
+    <p style="font-family: Arial,Helvetica,sans-serif; font-size: 15px; line-height: 1.5; color: #222222; margin: 0 0 12px 0;">All work submitted in this course must be the student&rsquo;s own and produced for this course unless collaboration or outside assistance has been expressly authorized. Students are responsible for understanding and following the University of Denver Honor Code. Information about academic integrity and applicable procedures is available at https://studentaffairs.du.edu/student-rights-responsibilities/honor-code.</p>
+</div>
+  
+</body>
+</html>
