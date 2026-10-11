@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+  <head>
+
+	<title>Frederic Latremoliere, PhD personal site / List of Recent and Upcoming Courses</title>
+	  
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.5">
+	  
+ 	<link rel="icon" type="image/x-icon" href="favicon.ico"> 
+ 	<link rel="stylesheet" href="./style.css">
+	  
+
+    <script src="./fractal.js"></script>
+
+	<style>
+
+      a.arxiva { text-decoration: underline; font: inherit; color: inherit; }
+      a.arxiva:hover { text-decoration: underline; color: blue; }
+
+      
+      li { 
+		  font-size: 1.3em; 
+		  padding: 1em 1em 1em 1em; 
+		  overflow-wrap: break-word;
+    	  word-wrap: break-word; /* Legacy support */
+          word-break: break-word; }
+      
+ 	.abstract {
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Legacy support */
+    word-break: break-word;
+	}
+
+	#fractal-pic {
+		position: relative;
+		flex: 35%;
+		overflow: hidden;
+	}
+	#main-content { 
+		position: relative;
+		top: 20px;
+		overflow-y: auto;
+		flex: 55%;
+		scrollbar-color: #ab9567 #101e35;
+		height: 100%;
+	}
+		
+	@media (max-width: 768px) {	
+ 	#fractal-pic { 
+		flex: 15%; 
+		}
+ 	#main-content { flex-grow: 1; }
+	}
+	
+	</style>
+	  
+  </head>
+
+  
+  <body onload="init('fractal');">
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+	  
+    <nav class="nava">
+      <a class="nava" href="./index.html">Home</a>
+      <a class="nava" href="./research.html">Research</a>
+      <a class="nava" href="./publications.html">Publications</a>
+	    <a class="nava" href="https://docs.google.com/gview?url=https://github.com/FredericLatremoliere/FredericLatremoliere.github.io/releases/download/latest/cv-ua2.pdf&embedded=true">CV (PDF)</a>
+      <a class="nava" href="teaching.html">Teaching</a>
+      <a class="nava" href="about.html">About</a>
+    </nav>
+    
+    <div class="container">
+		
+ <main id="main-content">
+	
+	<h1>Dr. Fr&eacute;d&eacute;ric Latr&eacute;moli&egrave;re, PhD</h1>
+
+  <p class="centered" style="margin: auto; width: 90%;">Started in 2026, this page collects flyers for courses I taught since its creation. It is off the navigation menu, and only accessible bia the teaching page. Titles of courses link to the flyers in PDF format.</p>
+   
+	 	<h2> Upcoming Courses (Winter 2027)</h2>
+
+		<div style="position: relative; top: 20px; left: 0px; margin:auto; width: 80%; text-align:center;">
+	  
+	  <ol> 
+		<li class='lipublication'><a class='papertitle' href='https://docs.google.com/gview?url=https://github.com/FredericLatremoliere/FredericLatremoliere.github.io/releases/download/latest/functional-analysis-winter-27.pdf&embedded=true'>MATH 4501: Functional Analysis</a>, graduate course</li>
+    <li class='lipublication'><a class='papertitle' href='https://docs.google.com/gview?url=https://github.com/FredericLatremoliere/FredericLatremoliere.github.io/releases/download/latest/real-analysis-ii-winter-2027.pdf&embedded=true'>MATH 3162: Real Analysus II</a>, undergraduate course</li>
+    </ol>
+
+
+      
+		</div>
+
+
+   
+	  </main>
+
+      <div id="fractal-pic"> 
+		  <canvas id="fractal" style="width:90%; height:100%; border: solid 1px var(--rule); background-color: var(--darkBlue);" aria-hidden="true"></canvas>
+	  </div>
+
+    </div>
+  </body>
+  
+</html>
+
+
+
